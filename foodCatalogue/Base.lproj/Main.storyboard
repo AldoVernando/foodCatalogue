@@ -39,54 +39,66 @@
         <!--About-->
         <scene sceneID="EvW-7D-p7z">
             <objects>
-                <viewController id="biY-G1-hzj" sceneMemberID="viewController">
+                <viewController id="biY-G1-hzj" customClass="AboutViewController" customModule="foodCatalogue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fGy-H1-gVz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="X9R-E4-eVp">
-                                <rect key="frame" x="32" y="148" width="350" height="225"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="X9R-E4-eVp">
+                                <rect key="frame" x="82" y="148" width="250" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="350" id="ZAf-nL-rCO"/>
-                                    <constraint firstAttribute="height" constant="225" id="j7i-YU-9LF"/>
+                                    <constraint firstAttribute="width" constant="250" id="ZAf-nL-rCO"/>
+                                    <constraint firstAttribute="height" constant="250" id="j7i-YU-9LF"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aldo Vernando" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSJ-6q-Bxz">
-                                <rect key="frame" x="128" y="398" width="158.5" height="30"/>
+                                <rect key="frame" x="128" y="423" width="158.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IOS Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ay-z9-Dxy">
-                                <rect key="frame" x="149.5" y="438" width="115.5" height="21.5"/>
+                                <rect key="frame" x="149.5" y="463" width="115.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" systemColor="systemGray3Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="aN7-yI-xVd">
-                                <rect key="frame" x="67" y="559.5" width="280" height="60"/>
+                                <rect key="frame" x="67" y="584.5" width="280" height="60"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linkedin" translatesAutoresizingMaskIntoConstraints="NO" id="Lcd-g8-ond">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tF2-UF-doK" userLabel="linkedIn">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="6g7-1l-xnZ"/>
-                                            <constraint firstAttribute="width" constant="60" id="PCh-Xc-zyH"/>
+                                            <constraint firstAttribute="width" constant="60" id="gWf-gg-qIl"/>
+                                            <constraint firstAttribute="height" constant="60" id="sDK-6h-IM0"/>
                                         </constraints>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github" translatesAutoresizingMaskIntoConstraints="NO" id="l0F-Zh-fxM">
+                                        <state key="normal" title="Button" image="linkedin"/>
+                                        <connections>
+                                            <action selector="linkedInButtonClicked:" destination="biY-G1-hzj" eventType="touchUpInside" id="Tqf-JC-W61"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4i5-uv-kOp" userLabel="github">
                                         <rect key="frame" x="110" y="0.0" width="60" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="XNo-ta-7a3"/>
-                                            <constraint firstAttribute="width" constant="60" id="bPQ-rB-Bu3"/>
+                                            <constraint firstAttribute="height" constant="60" id="ECm-cU-RYR"/>
+                                            <constraint firstAttribute="width" constant="60" id="r5P-St-n8Z"/>
                                         </constraints>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram" translatesAutoresizingMaskIntoConstraints="NO" id="SIg-aB-bB0">
+                                        <state key="normal" title="Button" image="github"/>
+                                        <connections>
+                                            <action selector="githubButtonClicked:" destination="biY-G1-hzj" eventType="touchUpInside" id="Mxp-zn-vc9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgh-il-eB1" userLabel="instagram">
                                         <rect key="frame" x="220" y="0.0" width="60" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="Ty2-Vz-NbI"/>
-                                            <constraint firstAttribute="width" constant="60" id="qFt-Uz-vqK"/>
+                                            <constraint firstAttribute="width" constant="60" id="Hg8-d0-YEL"/>
+                                            <constraint firstAttribute="height" constant="60" id="ph5-M9-9Vt"/>
                                         </constraints>
-                                    </imageView>
+                                        <state key="normal" title="Button" image="instagram"/>
+                                        <connections>
+                                            <action selector="instagramButtonClicked:" destination="biY-G1-hzj" eventType="touchUpInside" id="EMA-8t-M4h"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -104,6 +116,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="about" id="pxu-6H-mlo"/>
+                    <connections>
+                        <outlet property="profileImage" destination="X9R-E4-eVp" id="pw2-aJ-Hcb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SRp-13-uQS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

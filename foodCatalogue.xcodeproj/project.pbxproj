@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -107,7 +107,6 @@
 				3C20CD05BD0796E850A9BA83 /* Pods-foodCatalogueTests.debug.xcconfig */,
 				E3724D304C681C86044729B5 /* Pods-foodCatalogueTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -189,7 +188,6 @@
 				B519347B25690195002073BB /* Sources */,
 				B519347C25690195002073BB /* Frameworks */,
 				B519347D25690195002073BB /* Resources */,
-				B51934CC25691280002073BB /* Run Script */,
 				A8A7FBCE75C464A45B63D4F4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -409,24 +407,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-foodCatalogue/Pods-foodCatalogue-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		B51934CC25691280002073BB /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then \n    swiftlint \nelse \n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\" \nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
