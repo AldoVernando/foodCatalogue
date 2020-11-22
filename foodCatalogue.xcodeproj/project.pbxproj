@@ -15,6 +15,13 @@
 		B5058608256A556A00978E27 /* FoodDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058607256A556A00978E27 /* FoodDataSource.swift */; };
 		B5058616256A568700978E27 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058615256A568700978E27 /* Endpoint.swift */; };
 		B505861B256A56FD00978E27 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505861A256A56FD00978E27 /* Constant.swift */; };
+		B5058621256A767000978E27 /* FoodRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058620256A767000978E27 /* FoodRepositoryProtocol.swift */; };
+		B5058629256A76B900978E27 /* FoodRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058628256A76B900978E27 /* FoodRepository.swift */; };
+		B505862E256A786700978E27 /* FoodUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505862D256A786700978E27 /* FoodUseCase.swift */; };
+		B5058633256A787A00978E27 /* FoodInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058632256A787A00978E27 /* FoodInteractor.swift */; };
+		B505863A256A79BE00978E27 /* FoodPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058639256A79BE00978E27 /* FoodPresenterProtocol.swift */; };
+		B505863F256A79E200978E27 /* FoodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505863E256A79E200978E27 /* FoodPresenter.swift */; };
+		B505864D256A7A9000978E27 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505864C256A7A9000978E27 /* Injection.swift */; };
 		B519348325690195002073BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519348225690195002073BB /* AppDelegate.swift */; };
 		B519348525690195002073BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519348425690195002073BB /* SceneDelegate.swift */; };
 		B519348A25690195002073BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B519348825690195002073BB /* Main.storyboard */; };
@@ -61,6 +68,13 @@
 		B5058607256A556A00978E27 /* FoodDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDataSource.swift; sourceTree = "<group>"; };
 		B5058615256A568700978E27 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		B505861A256A56FD00978E27 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		B5058620256A767000978E27 /* FoodRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRepositoryProtocol.swift; sourceTree = "<group>"; };
+		B5058628256A76B900978E27 /* FoodRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRepository.swift; sourceTree = "<group>"; };
+		B505862D256A786700978E27 /* FoodUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodUseCase.swift; sourceTree = "<group>"; };
+		B5058632256A787A00978E27 /* FoodInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInteractor.swift; sourceTree = "<group>"; };
+		B5058639256A79BE00978E27 /* FoodPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPresenterProtocol.swift; sourceTree = "<group>"; };
+		B505863E256A79E200978E27 /* FoodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPresenter.swift; sourceTree = "<group>"; };
+		B505864C256A7A9000978E27 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		B519347F25690195002073BB /* foodCatalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodCatalogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B519348225690195002073BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B519348425690195002073BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +151,7 @@
 		B50585E4256A4F3800978E27 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B505861F256A765D00978E27 /* Repository */,
 				B50585EF256A52D400978E27 /* Data Source */,
 				B50585EE256A522200978E27 /* Entities */,
 				B505860C256A565B00978E27 /* Utils */,
@@ -147,6 +162,7 @@
 		B50585E8256A4F3D00978E27 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				B5058638256A79AC00978E27 /* Interactor */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -154,6 +170,9 @@
 		B50585ED256A4F6A00978E27 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				B5058643256A7A7100978E27 /* Dependency Injection */,
+				B5058637256A79A200978E27 /* Presenter */,
+				B5058651256A7B3E00978E27 /* Views */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -184,6 +203,51 @@
 				B505861A256A56FD00978E27 /* Constant.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		B505861F256A765D00978E27 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B5058620256A767000978E27 /* FoodRepositoryProtocol.swift */,
+				B5058628256A76B900978E27 /* FoodRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B5058637256A79A200978E27 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B5058639256A79BE00978E27 /* FoodPresenterProtocol.swift */,
+				B505863E256A79E200978E27 /* FoodPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B5058638256A79AC00978E27 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				B505862D256A786700978E27 /* FoodUseCase.swift */,
+				B5058632256A787A00978E27 /* FoodInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		B5058643256A7A7100978E27 /* Dependency Injection */ = {
+			isa = PBXGroup;
+			children = (
+				B505864C256A7A9000978E27 /* Injection.swift */,
+			);
+			path = "Dependency Injection";
+			sourceTree = "<group>";
+		};
+		B5058651256A7B3E00978E27 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B51934BF25690D9E002073BB /* FoodsViewController.swift */,
+				B51934C725690DAE002073BB /* FavoritesViewController.swift */,
+				B51934D0256914EE002073BB /* AboutViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B519347625690195002073BB = {
@@ -221,9 +285,6 @@
 				B519349025690198002073BB /* LaunchScreen.storyboard */,
 				B519349325690198002073BB /* Info.plist */,
 				B519348B25690195002073BB /* foodCatalogue.xcdatamodeld */,
-				B51934BF25690D9E002073BB /* FoodsViewController.swift */,
-				B51934C725690DAE002073BB /* FavoritesViewController.swift */,
-				B51934D0256914EE002073BB /* AboutViewController.swift */,
 			);
 			path = foodCatalogue;
 			sourceTree = "<group>";
@@ -485,16 +546,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				B50585F9256A53FA00978E27 /* FoodListEntity.swift in Sources */,
+				B5058621256A767000978E27 /* FoodRepositoryProtocol.swift in Sources */,
 				B5058608256A556A00978E27 /* FoodDataSource.swift in Sources */,
 				B51934D1256914EE002073BB /* AboutViewController.swift in Sources */,
 				B50585F1256A52F400978E27 /* FoodDataSourceProtocol.swift in Sources */,
+				B505864D256A7A9000978E27 /* Injection.swift in Sources */,
 				B519348325690195002073BB /* AppDelegate.swift in Sources */,
 				B519348525690195002073BB /* SceneDelegate.swift in Sources */,
 				B5058603256A54CD00978E27 /* NutrientEntity.swift in Sources */,
+				B505863F256A79E200978E27 /* FoodPresenter.swift in Sources */,
 				B50585FE256A544C00978E27 /* FoodEntity.swift in Sources */,
+				B5058629256A76B900978E27 /* FoodRepository.swift in Sources */,
 				B51934C025690D9E002073BB /* FoodsViewController.swift in Sources */,
 				B505861B256A56FD00978E27 /* Constant.swift in Sources */,
 				B51934C825690DAE002073BB /* FavoritesViewController.swift in Sources */,
+				B5058633256A787A00978E27 /* FoodInteractor.swift in Sources */,
+				B505863A256A79BE00978E27 /* FoodPresenterProtocol.swift in Sources */,
+				B505862E256A786700978E27 /* FoodUseCase.swift in Sources */,
 				B5058616256A568700978E27 /* Endpoint.swift in Sources */,
 				B519348D25690195002073BB /* foodCatalogue.xcdatamodeld in Sources */,
 			);

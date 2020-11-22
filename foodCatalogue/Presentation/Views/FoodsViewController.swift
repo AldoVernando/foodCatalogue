@@ -9,15 +9,20 @@ import UIKit
 
 class FoodsViewController: UIViewController {
     
+    
+    private var foodList: [FoodEntity] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let interactor = Injection.init().provideInteractor()
+        let presenter = FoodPresenter(interactor: interactor)
         
-        FoodDataSource.init().getFoodList { result in
+        presenter.getFoodList { result in
             switch result {
             case .success(let value):
-                print(value)
+                self.foodList.append(contentsOf: value)
             case .failure(let error):
-                print(error)
+                print("Error \(error.localizedDescription)")
             }
         }
     }
