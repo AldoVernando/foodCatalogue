@@ -148,6 +148,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Foods" image="food" selectedImage="food" id="U4O-pn-qNl"/>
                     <connections>
+                        <outlet property="tableView" destination="UNo-BP-U7Q" id="EIU-cN-Sof"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToFoodDetail" id="VlV-d6-TUh"/>
                     </connections>
                 </viewController>

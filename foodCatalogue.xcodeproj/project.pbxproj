@@ -22,6 +22,8 @@
 		B505863A256A79BE00978E27 /* FoodPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058639256A79BE00978E27 /* FoodPresenterProtocol.swift */; };
 		B505863F256A79E200978E27 /* FoodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505863E256A79E200978E27 /* FoodPresenter.swift */; };
 		B505864D256A7A9000978E27 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505864C256A7A9000978E27 /* Injection.swift */; };
+		B5058672256A874400978E27 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058670256A874400978E27 /* FoodTableViewCell.swift */; };
+		B5058673256A874400978E27 /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5058671256A874400978E27 /* FoodTableViewCell.xib */; };
 		B519348325690195002073BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519348225690195002073BB /* AppDelegate.swift */; };
 		B519348525690195002073BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519348425690195002073BB /* SceneDelegate.swift */; };
 		B519348A25690195002073BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B519348825690195002073BB /* Main.storyboard */; };
@@ -75,6 +77,8 @@
 		B5058639256A79BE00978E27 /* FoodPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPresenterProtocol.swift; sourceTree = "<group>"; };
 		B505863E256A79E200978E27 /* FoodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPresenter.swift; sourceTree = "<group>"; };
 		B505864C256A7A9000978E27 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		B5058670256A874400978E27 /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
+		B5058671256A874400978E27 /* FoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTableViewCell.xib; sourceTree = "<group>"; };
 		B519347F25690195002073BB /* foodCatalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodCatalogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B519348225690195002073BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B519348425690195002073BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,7 +176,9 @@
 			children = (
 				B5058643256A7A7100978E27 /* Dependency Injection */,
 				B5058637256A79A200978E27 /* Presenter */,
-				B5058651256A7B3E00978E27 /* Views */,
+				B505865C256A7F9000978E27 /* Foods */,
+				B51934C725690DAE002073BB /* FavoritesViewController.swift */,
+				B51934D0256914EE002073BB /* AboutViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -240,14 +246,14 @@
 			path = "Dependency Injection";
 			sourceTree = "<group>";
 		};
-		B5058651256A7B3E00978E27 /* Views */ = {
+		B505865C256A7F9000978E27 /* Foods */ = {
 			isa = PBXGroup;
 			children = (
 				B51934BF25690D9E002073BB /* FoodsViewController.swift */,
-				B51934C725690DAE002073BB /* FavoritesViewController.swift */,
-				B51934D0256914EE002073BB /* AboutViewController.swift */,
+				B5058670256A874400978E27 /* FoodTableViewCell.swift */,
+				B5058671256A874400978E27 /* FoodTableViewCell.xib */,
 			);
-			path = Views;
+			path = Foods;
 			sourceTree = "<group>";
 		};
 		B519347625690195002073BB = {
@@ -416,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B519349225690198002073BB /* LaunchScreen.storyboard in Resources */,
+				B5058673256A874400978E27 /* FoodTableViewCell.xib in Resources */,
 				B519348F25690198002073BB /* Assets.xcassets in Resources */,
 				B519348A25690195002073BB /* Main.storyboard in Resources */,
 			);
@@ -562,6 +569,7 @@
 				B51934C825690DAE002073BB /* FavoritesViewController.swift in Sources */,
 				B5058633256A787A00978E27 /* FoodInteractor.swift in Sources */,
 				B505863A256A79BE00978E27 /* FoodPresenterProtocol.swift in Sources */,
+				B5058672256A874400978E27 /* FoodTableViewCell.swift in Sources */,
 				B505862E256A786700978E27 /* FoodUseCase.swift in Sources */,
 				B5058616256A568700978E27 /* Endpoint.swift in Sources */,
 				B519348D25690195002073BB /* foodCatalogue.xcdatamodeld in Sources */,
