@@ -76,4 +76,19 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let presenter = FoodPresenter(interactor: interactor)
+        
+        presenter.getFoodDetail(id: foodList[indexPath.row].food.foodId ?? "") { result in
+            switch result {
+            case .success(let value):
+                print(value.totalWeight)
+                print(value.calories)
+            case .failure(let error):
+                print("Error \(error.localizedDescription)")
+            }
+        }
+    }
 }

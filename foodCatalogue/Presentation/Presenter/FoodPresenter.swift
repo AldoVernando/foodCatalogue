@@ -25,4 +25,15 @@ class FoodPresenter: FoodPresenterProtocol {
             }
         }
     }
+    
+    func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void) {
+        foodInteractor.getFoodDetail(id: id) { result in
+            switch result {
+            case .success(let value):
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

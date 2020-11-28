@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6A64D2DD98BE573CD0486192 /* Pods_foodCatalogueTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A67C46B2F2B7A4ED7FC326 /* Pods_foodCatalogueTests.framework */; };
+		B50298AE25726D8E00930921 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50298AD25726D8E00930921 /* Helper.swift */; };
+		B50298B325726F8C00930921 /* FoodDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50298B225726F8C00930921 /* FoodDetailEntity.swift */; };
 		B50585F1256A52F400978E27 /* FoodDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50585F0256A52F400978E27 /* FoodDataSourceProtocol.swift */; };
 		B50585F9256A53FA00978E27 /* FoodListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50585F8256A53FA00978E27 /* FoodListEntity.swift */; };
 		B50585FE256A544C00978E27 /* FoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50585FD256A544C00978E27 /* FoodEntity.swift */; };
@@ -63,6 +65,8 @@
 		3C20CD05BD0796E850A9BA83 /* Pods-foodCatalogueTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodCatalogueTests.debug.xcconfig"; path = "Target Support Files/Pods-foodCatalogueTests/Pods-foodCatalogueTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7B85EA3C744D9077524C6456 /* Pods-foodCatalogue-foodCatalogueUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodCatalogue-foodCatalogueUITests.debug.xcconfig"; path = "Target Support Files/Pods-foodCatalogue-foodCatalogueUITests/Pods-foodCatalogue-foodCatalogueUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E1B4A267D2C66A56D2EE697 /* Pods-foodCatalogue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodCatalogue.debug.xcconfig"; path = "Target Support Files/Pods-foodCatalogue/Pods-foodCatalogue.debug.xcconfig"; sourceTree = "<group>"; };
+		B50298AD25726D8E00930921 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		B50298B225726F8C00930921 /* FoodDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEntity.swift; sourceTree = "<group>"; };
 		B50585F0256A52F400978E27 /* FoodDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDataSourceProtocol.swift; sourceTree = "<group>"; };
 		B50585F8256A53FA00978E27 /* FoodListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListEntity.swift; sourceTree = "<group>"; };
 		B50585FD256A544C00978E27 /* FoodEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntity.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				B50585F8256A53FA00978E27 /* FoodListEntity.swift */,
 				B50585FD256A544C00978E27 /* FoodEntity.swift */,
 				B5058602256A54CD00978E27 /* NutrientEntity.swift */,
+				B50298B225726F8C00930921 /* FoodDetailEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 			children = (
 				B5058615256A568700978E27 /* Endpoint.swift */,
 				B505861A256A56FD00978E27 /* Constant.swift */,
+				B50298AD25726D8E00930921 /* Helper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -560,9 +566,11 @@
 				B505864D256A7A9000978E27 /* Injection.swift in Sources */,
 				B519348325690195002073BB /* AppDelegate.swift in Sources */,
 				B519348525690195002073BB /* SceneDelegate.swift in Sources */,
+				B50298B325726F8C00930921 /* FoodDetailEntity.swift in Sources */,
 				B5058603256A54CD00978E27 /* NutrientEntity.swift in Sources */,
 				B505863F256A79E200978E27 /* FoodPresenter.swift in Sources */,
 				B50585FE256A544C00978E27 /* FoodEntity.swift in Sources */,
+				B50298AE25726D8E00930921 /* Helper.swift in Sources */,
 				B5058629256A76B900978E27 /* FoodRepository.swift in Sources */,
 				B51934C025690D9E002073BB /* FoodsViewController.swift in Sources */,
 				B505861B256A56FD00978E27 /* Constant.swift in Sources */,

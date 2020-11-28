@@ -14,3 +14,9 @@ class NutrientEntity: Codable {
     var CHOCDF: Double?
     var FIBTG: Double?
 }
+
+class NutrientDetailEntity: Codable {
+    var label: String?
+    var quantity: Double?
+    var unit: String?
+}

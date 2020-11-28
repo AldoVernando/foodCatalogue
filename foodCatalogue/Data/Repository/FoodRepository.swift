@@ -25,4 +25,15 @@ class FoodRepository: FoodRepositoryProtocol {
             }
         }
     }
+    
+    func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void) {
+        foodDataSource.getFoodDetail(id: id) { result in
+            switch result {
+            case .success(let value):
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }
