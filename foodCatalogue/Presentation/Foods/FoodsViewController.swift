@@ -12,6 +12,8 @@ class FoodsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var foodList: [FoodEntity] = []
+    private let interactor = Injection.init().provideInteractor()
+    private var page: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,6 @@ class FoodsViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "FoodTableViewCell", bundle: nil), forCellReuseIdentifier: "foodCell")
         
-        let interactor = Injection.init().provideInteractor()
         let presenter = FoodPresenter(interactor: interactor)
         
         presenter.getFoodList { result in
@@ -54,6 +55,22 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.fat.text = String(food.nutrients.FAT ?? 0) + " mg"
             cell.carbs.text = String(food.nutrients.CHOCDF ?? 0) + " mg"
             cell.fiber.text = String(food.nutrients.FIBTG ?? 0) + " mg"
+            cell.selectionStyle = .none
+            
+            // pagination
+            if indexPath.row == foodList.count - 1 {
+                let presenter = FoodPresenter(interactor: interactor)
+                page += 1
+                presenter.getFoodList(page: page) { result in
+                    switch result {
+                    case .success(let value):
+                        self.foodList.append(contentsOf: value)
+                        self.tableView.reloadData()
+                    case .failure(let error):
+                        print("Error \(error.localizedDescription)")
+                    }
+                }
+            }
             
             return cell
         }

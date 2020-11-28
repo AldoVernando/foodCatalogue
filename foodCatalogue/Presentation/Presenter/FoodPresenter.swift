@@ -15,8 +15,8 @@ class FoodPresenter: FoodPresenterProtocol {
         self.foodInteractor = interactor
     }
     
-    func getFoodList(completion: @escaping (Result<[FoodEntity], Error>) -> Void) {
-        foodInteractor.getFoodList { result in
+    func getFoodList(page: Int = 0, completion: @escaping (Result<[FoodEntity], Error>) -> Void) {
+        foodInteractor.getFoodList(page: page) { result in
             switch result {
             case .success(let value):
                 completion(.success(value))

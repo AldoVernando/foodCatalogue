@@ -8,5 +8,5 @@
 import Foundation
 
 protocol FoodUseCase {
-    func getFoodList(completion: @escaping (Result<[FoodEntity], Error>) -> Void)
+    func getFoodList(page: Int, completion: @escaping (Result<[FoodEntity], Error>) -> Void)
 }

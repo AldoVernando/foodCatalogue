@@ -8,5 +8,5 @@
 import Foundation
 
 protocol FoodDataSourceProtocol {
-    func getFoodList(result: @escaping (Result<[FoodEntity], Error>) -> Void)
+    func getFoodList(page: Int, result: @escaping (Result<[FoodEntity], Error>) -> Void)
 }

@@ -10,13 +10,14 @@ import Alamofire
 
 class FoodDataSource: FoodDataSourceProtocol {
     
-    func getFoodList(result: @escaping (Result<[FoodEntity], Error>) -> Void) {
+    func getFoodList(page: Int = 0, result: @escaping (Result<[FoodEntity], Error>) -> Void) {
         
         let parameters = [
+            "page": page,
             "ingr": "-",
             "app_id": Constant.APP_ID,
             "app_key": Constant.API_KEY
-        ]
+        ] as [String : Any]
         
         let urlParameters = (parameters.compactMap { (key, value) -> String in
             return "\(key)=\(value)"

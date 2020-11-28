@@ -15,8 +15,8 @@ class FoodRepository: FoodRepositoryProtocol {
         self.foodDataSource = dataSource
     }
     
-    func getFoodList(completion: @escaping (Result<[FoodEntity], Error>) -> Void) {
-        foodDataSource.getFoodList { result in
+    func getFoodList(page: Int = 0, completion: @escaping (Result<[FoodEntity], Error>) -> Void) {
+        foodDataSource.getFoodList(page: page) { result in
             switch result {
             case .success(let value):
                 completion(.success(value))
