@@ -7,6 +7,7 @@ target 'foodCatalogue' do
 
   # Pods for foodCatalogue
   pod 'Alamofire'
+  pod 'SDWebImage'
 
   target 'foodCatalogueTests' do
     inherit! :search_paths

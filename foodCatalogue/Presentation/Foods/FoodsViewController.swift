@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FoodsViewController: UIViewController {
     
@@ -45,7 +46,15 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath) as? FoodTableViewCell {
             
             let food = foodList[indexPath.row].food
+            cell.foodImage.sd_setImage(with: URL(string: food.image ?? ""), placeholderImage: #imageLiteral(resourceName: "placeholder"), options: .continueInBackground)
             cell.title.text = food.label
+            cell.category.text = food.category
+            cell.calories.text = String(food.nutrients.ENERC_KCAL ?? 0) + " KCal"
+            cell.protein.text = String(food.nutrients.PROCNT ?? 0) + " mg"
+            cell.fat.text = String(food.nutrients.FAT ?? 0) + " mg"
+            cell.carbs.text = String(food.nutrients.CHOCDF ?? 0) + " mg"
+            cell.fiber.text = String(food.nutrients.FIBTG ?? 0) + " mg"
+            
             return cell
         }
         return UITableViewCell()
