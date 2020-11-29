@@ -182,7 +182,7 @@
 				B5058637256A79A200978E27 /* Presenter */,
 				B505865C256A7F9000978E27 /* Foods */,
 				B5DCB16D25738C2800A2AC9F /* Food Detail */,
-				B51934C725690DAE002073BB /* FavoritesViewController.swift */,
+				B5DCB1A02573C1D700A2AC9F /* Favorites */,
 				B51934D0256914EE002073BB /* AboutViewController.swift */,
 			);
 			path = Presentation;
@@ -325,6 +325,14 @@
 				B5DCB17F257390EF00A2AC9F /* NutrientTableViewCell.xib */,
 			);
 			path = "Food Detail";
+			sourceTree = "<group>";
+		};
+		B5DCB1A02573C1D700A2AC9F /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				B51934C725690DAE002073BB /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

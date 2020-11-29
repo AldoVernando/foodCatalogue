@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="byn-Sy-RTY">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="byn-Sy-RTY">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -31,6 +31,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="Favorites" image="star" selectedImage="star" id="Nbf-pJ-tBt"/>
+                    <connections>
+                        <outlet property="tableView" destination="byn-Sy-RTY" id="GYi-cm-dZb"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToFoodDetail" id="xBA-ky-ldE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPB-t1-qHh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -290,6 +294,9 @@
             <point key="canvasLocation" x="624.63768115942037" y="780.80357142857144"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xBA-ky-ldE"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="about" width="20" height="20"/>
         <image name="food" width="20" height="20"/>

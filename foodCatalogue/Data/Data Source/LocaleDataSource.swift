@@ -27,7 +27,7 @@ extension LocaleDataSource: LocaleDataSourceProtocol {
     
     func getFoods(result: @escaping (Result<[FoodData], Error>) -> Void) {
         if let realm = realm {
-            let foods = realm.objects(FoodData.self).sorted(byKeyPath: "label", ascending: true)
+            let foods = realm.objects(FoodData.self).sorted(byKeyPath: "name", ascending: true)
             result(.success(Array(foods)))
         }
     }

@@ -93,7 +93,7 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let food = foodList[indexPath.row].food
-        selectedFood = FoodData(id: food.foodId ?? "", name: food.label ?? "", category: food.categoryLabel ?? "", image: food.image ?? "")
+        selectedFood = FoodData(id: food.foodId ?? "", name: food.label ?? "", category: food.category ?? "", image: food.image ?? "")
         
         performSegue(withIdentifier: "goToFoodDetail", sender: self)
     }
