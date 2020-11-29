@@ -6,16 +6,23 @@
 //
 
 import Foundation
+import RealmSwift
 
 final class Injection: NSObject {
     
-    private func provideDataSource() -> FoodDataSourceProtocol {
+    private func provideRemoteDataSource() -> FoodDataSourceProtocol {
         return FoodDataSource()
     }
     
+    private func provideLocaleDataSource() -> LocaleDataSourceProtocol {
+        let realm = try? Realm()
+        return LocaleDataSource(realm: realm)
+    }
+    
     private func provideRepository() -> FoodRepositoryProtocol {
-        let foodDataSource = provideDataSource()
-        return FoodRepository(dataSource: foodDataSource)
+        let remote = provideRemoteDataSource()
+        let locale = provideLocaleDataSource()
+        return FoodRepository(remote: remote, locale: locale)
     }
     
     func provideInteractor() -> FoodUseCase {

@@ -7,6 +7,13 @@
 
 import Foundation
 
+protocol FoodUseCase {
+    func getFoodList(page: Int, completion: @escaping (Result<[FoodEntity], Error>) -> Void)
+    func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void)
+    func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void)
+    func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void)
+}
+
 class FoodInteractor: FoodUseCase {
     
     private let foodRepository: FoodRepositoryProtocol
@@ -28,6 +35,28 @@ class FoodInteractor: FoodUseCase {
     
     func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void) {
         foodRepository.getFoodDetail(id: id) { result in
+            switch result {
+            case .success(let value):
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void) {
+        foodRepository.getFavoriteFood { result in
+            switch result {
+            case .success(let value):
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void) {
+        foodRepository.addFavoriteFood(food: food) { result in
             switch result {
             case .success(let value):
                 completion(.success(value))

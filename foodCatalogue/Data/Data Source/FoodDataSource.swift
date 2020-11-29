@@ -8,6 +8,11 @@
 import Foundation
 import Alamofire
 
+protocol FoodDataSourceProtocol {
+    func getFoodList(page: Int, result: @escaping (Result<[FoodEntity], Error>) -> Void)
+    func getFoodDetail(id: String, result: @escaping (Result<FoodDetailEntity, Error>) -> Void)
+}
+
 class FoodDataSource: FoodDataSourceProtocol {
     
     func getFoodList(page: Int = 0, result: @escaping (Result<[FoodEntity], Error>) -> Void) {

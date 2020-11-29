@@ -7,16 +7,25 @@
 
 import Foundation
 
+protocol FoodRepositoryProtocol {
+    func getFoodList(page: Int, completion: @escaping (Result<[FoodEntity], Error>) -> Void)
+    func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void)
+    func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void)
+    func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void)
+}
+
 class FoodRepository: FoodRepositoryProtocol {
     
-    private let foodDataSource: FoodDataSourceProtocol
+    private let remote: FoodDataSourceProtocol
+    private let locale: LocaleDataSourceProtocol
     
-    init(dataSource: FoodDataSourceProtocol) {
-        self.foodDataSource = dataSource
+    init(remote: FoodDataSourceProtocol, locale: LocaleDataSourceProtocol) {
+        self.remote = remote
+        self.locale = locale
     }
     
     func getFoodList(page: Int = 0, completion: @escaping (Result<[FoodEntity], Error>) -> Void) {
-        foodDataSource.getFoodList(page: page) { result in
+        remote.getFoodList(page: page) { result in
             switch result {
             case .success(let value):
                 completion(.success(value))
@@ -27,7 +36,29 @@ class FoodRepository: FoodRepositoryProtocol {
     }
     
     func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void) {
-        foodDataSource.getFoodDetail(id: id) { result in
+        remote.getFoodDetail(id: id) { result in
+            switch result {
+            case .success(let value):
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void) {
+        locale.getFoods { result in
+            switch result {
+            case .success(let value):
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void) {
+        locale.addFood(food: food) { result in
             switch result {
             case .success(let value):
                 completion(.success(value))

@@ -7,6 +7,14 @@
 
 import Foundation
 
+protocol FoodPresenterProtocol {
+    func getFoodList(page: Int, completion: @escaping (Result<[FoodEntity], Error>) -> Void)
+    func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void)
+    func getNutrients(nutrients: TotalNutrients) -> [NutrientDetailEntity?]
+    func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void)
+    func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void)
+}
+
 class FoodPresenter: FoodPresenterProtocol {
     
     private let foodInteractor: FoodUseCase
@@ -71,5 +79,27 @@ class FoodPresenter: FoodPresenterProtocol {
         nutrientArray.append(nutrients.VITB6A)
         
         return nutrientArray
+    }
+    
+    func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void) {
+        foodInteractor.getFavoriteFood { result in
+            switch result {
+            case .success(let value):
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void) {
+        foodInteractor.addFavoriteFood(food: food) { result in
+            switch result {
+            case .success(let value):
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }
