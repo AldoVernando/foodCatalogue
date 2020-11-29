@@ -14,6 +14,7 @@ class FoodsViewController: UIViewController {
     private var foodList: [FoodEntity] = []
     private let interactor = Injection.init().provideInteractor()
     private var page: Int = 0
+    private var selectedFood: FoodDetailData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +27,23 @@ class FoodsViewController: UIViewController {
         presenter.getFoodList { result in
             switch result {
             case .success(let value):
-                self.foodList.append(contentsOf: value)
+                self.foodList = value
                 self.tableView.reloadData()
             case .failure(let error):
                 print("Error \(error.localizedDescription)")
+            }
+        }
+    }
+}
+
+
+// MARK: Segue
+extension FoodsViewController {
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToFoodDetail" {
+            if let vc = segue.destination as? FoodDetailViewController {
+                vc.foodData = selectedFood
             }
         }
     }
@@ -78,17 +92,9 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let food = foodList[indexPath.row].food
+        selectedFood = FoodDetailData(id: food.foodId ?? "", name: food.label ?? "", image: food.image ?? "")
         
-        let presenter = FoodPresenter(interactor: interactor)
-        
-        presenter.getFoodDetail(id: foodList[indexPath.row].food.foodId ?? "") { result in
-            switch result {
-            case .success(let value):
-                print(value.totalWeight)
-                print(value.calories)
-            case .failure(let error):
-                print("Error \(error.localizedDescription)")
-            }
-        }
+        performSegue(withIdentifier: "goToFoodDetail", sender: self)
     }
 }

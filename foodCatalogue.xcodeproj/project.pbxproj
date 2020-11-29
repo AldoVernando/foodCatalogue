@@ -37,6 +37,9 @@
 		B51934C025690D9E002073BB /* FoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51934BF25690D9E002073BB /* FoodsViewController.swift */; };
 		B51934C825690DAE002073BB /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51934C725690DAE002073BB /* FavoritesViewController.swift */; };
 		B51934D1256914EE002073BB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51934D0256914EE002073BB /* AboutViewController.swift */; };
+		B5DCB16F25738C5C00A2AC9F /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCB16E25738C5C00A2AC9F /* FoodDetailViewController.swift */; };
+		B5DCB180257390EF00A2AC9F /* NutrientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCB17E257390EF00A2AC9F /* NutrientTableViewCell.swift */; };
+		B5DCB181257390EF00A2AC9F /* NutrientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5DCB17F257390EF00A2AC9F /* NutrientTableViewCell.xib */; };
 		BA044CBBD26D1402FAE7E37E /* Pods_foodCatalogue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1213F9F59AF0B5A42BDF7245 /* Pods_foodCatalogue.framework */; };
 		C5180300C972869704A5D01B /* Pods_foodCatalogue_foodCatalogueUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31CE8039F0A73A8223BC4101 /* Pods_foodCatalogue_foodCatalogueUITests.framework */; };
 /* End PBXBuildFile section */
@@ -100,6 +103,9 @@
 		B51934BF25690D9E002073BB /* FoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsViewController.swift; sourceTree = "<group>"; };
 		B51934C725690DAE002073BB /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		B51934D0256914EE002073BB /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		B5DCB16E25738C5C00A2AC9F /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
+		B5DCB17E257390EF00A2AC9F /* NutrientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientTableViewCell.swift; sourceTree = "<group>"; };
+		B5DCB17F257390EF00A2AC9F /* NutrientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutrientTableViewCell.xib; sourceTree = "<group>"; };
 		BE54C5EE1D1DD465952719C9 /* Pods-foodCatalogue-foodCatalogueUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodCatalogue-foodCatalogueUITests.release.xcconfig"; path = "Target Support Files/Pods-foodCatalogue-foodCatalogueUITests/Pods-foodCatalogue-foodCatalogueUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C7A67C46B2F2B7A4ED7FC326 /* Pods_foodCatalogueTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodCatalogueTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3724D304C681C86044729B5 /* Pods-foodCatalogueTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodCatalogueTests.release.xcconfig"; path = "Target Support Files/Pods-foodCatalogueTests/Pods-foodCatalogueTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +187,7 @@
 				B5058643256A7A7100978E27 /* Dependency Injection */,
 				B5058637256A79A200978E27 /* Presenter */,
 				B505865C256A7F9000978E27 /* Foods */,
+				B5DCB16D25738C2800A2AC9F /* Food Detail */,
 				B51934C725690DAE002073BB /* FavoritesViewController.swift */,
 				B51934D0256914EE002073BB /* AboutViewController.swift */,
 			);
@@ -319,6 +326,16 @@
 			path = foodCatalogueUITests;
 			sourceTree = "<group>";
 		};
+		B5DCB16D25738C2800A2AC9F /* Food Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B5DCB16E25738C5C00A2AC9F /* FoodDetailViewController.swift */,
+				B5DCB17E257390EF00A2AC9F /* NutrientTableViewCell.swift */,
+				B5DCB17F257390EF00A2AC9F /* NutrientTableViewCell.xib */,
+			);
+			path = "Food Detail";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -430,6 +447,7 @@
 				B519349225690198002073BB /* LaunchScreen.storyboard in Resources */,
 				B5058673256A874400978E27 /* FoodTableViewCell.xib in Resources */,
 				B519348F25690198002073BB /* Assets.xcassets in Resources */,
+				B5DCB181257390EF00A2AC9F /* NutrientTableViewCell.xib in Resources */,
 				B519348A25690195002073BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,6 +579,7 @@
 				B50585F9256A53FA00978E27 /* FoodListEntity.swift in Sources */,
 				B5058621256A767000978E27 /* FoodRepositoryProtocol.swift in Sources */,
 				B5058608256A556A00978E27 /* FoodDataSource.swift in Sources */,
+				B5DCB16F25738C5C00A2AC9F /* FoodDetailViewController.swift in Sources */,
 				B51934D1256914EE002073BB /* AboutViewController.swift in Sources */,
 				B50585F1256A52F400978E27 /* FoodDataSourceProtocol.swift in Sources */,
 				B505864D256A7A9000978E27 /* Injection.swift in Sources */,
@@ -576,6 +595,7 @@
 				B505861B256A56FD00978E27 /* Constant.swift in Sources */,
 				B51934C825690DAE002073BB /* FavoritesViewController.swift in Sources */,
 				B5058633256A787A00978E27 /* FoodInteractor.swift in Sources */,
+				B5DCB180257390EF00A2AC9F /* NutrientTableViewCell.swift in Sources */,
 				B505863A256A79BE00978E27 /* FoodPresenterProtocol.swift in Sources */,
 				B5058672256A874400978E27 /* FoodTableViewCell.swift in Sources */,
 				B505862E256A786700978E27 /* FoodUseCase.swift in Sources */,

@@ -10,4 +10,5 @@ import Foundation
 protocol FoodPresenterProtocol {
     func getFoodList(page: Int, completion: @escaping (Result<[FoodEntity], Error>) -> Void)
     func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void)
+    func getNutrients(nutrients: TotalNutrients) -> [NutrientDetailEntity?]
 }

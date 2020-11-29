@@ -39,10 +39,16 @@ class TotalNutrients: Codable {
     var RIBF: NutrientDetailEntity?
     var VITB6A: NutrientDetailEntity?
     var FOLDFE: NutrientDetailEntity?
-    var FOLD: NutrientDetailEntity?
+    var FOLFD: NutrientDetailEntity?
     var FOLAC: NutrientDetailEntity?
     var VITD: NutrientDetailEntity?
-    var TOPCHA: NutrientDetailEntity?
+    var TOCPHA: NutrientDetailEntity?
     var VITK1: NutrientDetailEntity?
     var WATER: NutrientDetailEntity?
+}
+
+struct FoodDetailData {
+    let id: String
+    let name: String
+    let image: String
 }
