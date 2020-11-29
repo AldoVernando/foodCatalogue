@@ -14,7 +14,7 @@ class FoodsViewController: UIViewController {
     private var foodList: [FoodEntity] = []
     private let interactor = Injection.init().provideInteractor()
     private var page: Int = 0
-    private var selectedFood: FoodDetailData?
+    private var selectedFood: FoodData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +93,7 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let food = foodList[indexPath.row].food
-        selectedFood = FoodDetailData(id: food.foodId ?? "", name: food.label ?? "", image: food.image ?? "")
+        selectedFood = FoodData(id: food.foodId ?? "", name: food.label ?? "", category: food.categoryLabel ?? "", image: food.image ?? "")
         
         performSegue(withIdentifier: "goToFoodDetail", sender: self)
     }

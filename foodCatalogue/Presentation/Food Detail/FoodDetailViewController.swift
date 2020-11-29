@@ -14,9 +14,19 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var healthLabels: UILabel!
     @IBOutlet weak var nutrientsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     private let interactor = Injection.init().provideInteractor()
     private var nutrients: [NutrientDetailEntity?] = []
-    var foodData: FoodDetailData?
+    private var isFavorite: Bool = false {
+        didSet {
+            if isFavorite {
+                favoriteButton.image = UIImage(systemName: "star.fill")
+            } else {
+                favoriteButton.image = UIImage(systemName: "star")
+            }
+        }
+    }
+    var foodData: FoodData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +70,45 @@ class FoodDetailViewController: UIViewController {
                     }
                 case .failure(let error):
                     print("Error \(error.localizedDescription)")
+                }
+            }
+            
+            self.isFavorite = presenter.isFavorite(id: food.id)
+        }
+    }
+    
+    @IBAction func onFavoriteButtonClicked(_ sender: Any) {
+        
+        let presenter = FoodPresenter(interactor: interactor)
+        
+        if let food = foodData {
+            if isFavorite {
+                presenter.removeFavoriteFood(id: food.id) { result in
+                    switch result {
+                    case .success(let value):
+                        if value {
+                            self.isFavorite = false
+                            let alert = UIAlertController(title: "Food Removed", message: "This food has been removed from favorites.", preferredStyle: UIAlertController.Style.alert)
+                            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    case .failure(let error):
+                        print("Error \(error.localizedDescription)")
+                    }
+                }
+            } else {
+                presenter.addFavoriteFood(food: food) { result in
+                    switch result {
+                    case .success(let value):
+                        if value {
+                            self.isFavorite = true
+                            let alert = UIAlertController(title: "Food Added", message: "This food has been added to favorites.", preferredStyle: UIAlertController.Style.alert)
+                            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    case .failure(let error):
+                        print("Error \(error.localizedDescription)")
+                    }
                 }
             }
         }

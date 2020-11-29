@@ -13,6 +13,8 @@ protocol FoodPresenterProtocol {
     func getNutrients(nutrients: TotalNutrients) -> [NutrientDetailEntity?]
     func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void)
     func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void)
+    func isFavorite(id: String) -> Bool
+    func removeFavoriteFood(id: String, completion: @escaping (Result<Bool, Error>) -> Void)
 }
 
 class FoodPresenter: FoodPresenterProtocol {
@@ -94,6 +96,21 @@ class FoodPresenter: FoodPresenterProtocol {
     
     func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void) {
         foodInteractor.addFavoriteFood(food: food) { result in
+            switch result {
+            case .success(let value):
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func isFavorite(id: String) -> Bool {
+        return foodInteractor.isFavorite(id: id)
+    }
+    
+    func removeFavoriteFood(id: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        foodInteractor.removeFavoriteFood(id: id) { result in
             switch result {
             case .success(let value):
                 completion(.success(value))

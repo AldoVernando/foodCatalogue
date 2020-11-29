@@ -268,8 +268,16 @@
                             <constraint firstItem="bPC-Yj-6k9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="yg3-GB-WgF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Food's Detail" id="xGJ-El-LEl"/>
+                    <navigationItem key="navigationItem" title="Food's Detail" id="xGJ-El-LEl">
+                        <barButtonItem key="rightBarButtonItem" title="Favorite" image="star" catalog="system" id="KPb-6D-vOH">
+                            <color key="tintColor" red="1" green="0.71435284789999998" blue="0.72781301190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="onFavoriteButtonClicked:" destination="BYZ-38-t0r" id="AaJ-Wh-K5B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="favoriteButton" destination="KPb-6D-vOH" id="F8n-Ir-VSb"/>
                         <outlet property="foodImage" destination="fN6-Uw-f5a" id="GUq-lW-Ihj"/>
                         <outlet property="foodName" destination="bPC-Yj-6k9" id="x12-Rs-HJA"/>
                         <outlet property="healthLabels" destination="DKb-dE-bbg" id="EJo-1V-1zv"/>
@@ -289,6 +297,7 @@
         <image name="instagram" width="480" height="480"/>
         <image name="linkedin" width="480" height="480"/>
         <image name="me" width="1478" height="1108"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <image name="star" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

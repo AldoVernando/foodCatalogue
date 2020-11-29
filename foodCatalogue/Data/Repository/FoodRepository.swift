@@ -12,6 +12,8 @@ protocol FoodRepositoryProtocol {
     func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void)
     func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void)
     func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void)
+    func isFavorite(id: String) -> Bool
+    func removeFavoriteFood(id: String, completion: @escaping (Result<Bool, Error>) -> Void)
 }
 
 class FoodRepository: FoodRepositoryProtocol {
@@ -59,6 +61,21 @@ class FoodRepository: FoodRepositoryProtocol {
     
     func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void) {
         locale.addFood(food: food) { result in
+            switch result {
+            case .success(let value):
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func isFavorite(id: String) -> Bool {
+        return locale.isFoodExists(id: id)
+    }
+    
+    func removeFavoriteFood(id: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        locale.removeFood(id: id) { result in
             switch result {
             case .success(let value):
                 completion(.success(value))

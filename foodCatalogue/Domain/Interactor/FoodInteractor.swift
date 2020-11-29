@@ -12,6 +12,8 @@ protocol FoodUseCase {
     func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void)
     func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void)
     func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void)
+    func isFavorite(id: String) -> Bool
+    func removeFavoriteFood(id: String, completion: @escaping (Result<Bool, Error>) -> Void)
 }
 
 class FoodInteractor: FoodUseCase {
@@ -57,6 +59,21 @@ class FoodInteractor: FoodUseCase {
     
     func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void) {
         foodRepository.addFavoriteFood(food: food) { result in
+            switch result {
+            case .success(let value):
+                completion(.success(value))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func isFavorite(id: String) -> Bool {
+        return foodRepository.isFavorite(id: id)
+    }
+    
+    func removeFavoriteFood(id: String, completion: @escaping (Result<Bool, Error>) -> Void) {
+        foodRepository.removeFavoriteFood(id: id) { result in
             switch result {
             case .success(let value):
                 completion(.success(value))
