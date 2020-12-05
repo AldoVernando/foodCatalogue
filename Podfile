@@ -9,6 +9,7 @@ target 'foodCatalogue' do
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'RealmSwift'
+  pod 'RxSwift'
 
   target 'foodCatalogueTests' do
     inherit! :search_paths

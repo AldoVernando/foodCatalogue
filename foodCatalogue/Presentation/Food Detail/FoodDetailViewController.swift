@@ -6,14 +6,17 @@
 //
 
 import UIKit
+import RxSwift
 
 class FoodDetailViewController: UIViewController {
 
     @IBOutlet weak var foodName: UILabel!
     @IBOutlet weak var foodImage: UIImageView!
+    @IBOutlet weak var healthText: UILabel!
     @IBOutlet weak var healthLabels: UILabel!
     @IBOutlet weak var nutrientsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     private let interactor = Injection.init().provideInteractor()
     private var nutrients: [NutrientDetailEntity?] = []
@@ -27,30 +30,37 @@ class FoodDetailViewController: UIViewController {
         }
     }
     var foodData: FoodData?
+    private var presenter: FoodPresenter?
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = FoodPresenter(interactor: interactor)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "NutrientTableViewCell", bundle: nil), forCellReuseIdentifier: "nutrientCell")
         
+        guard let presenter = presenter else { return }
+        
         if let food = foodData {
             foodName.text = food.name
             foodImage.sd_setImage(with: URL(string: food.image), placeholderImage: #imageLiteral(resourceName: "placeholder"), options: .continueInBackground)
-        
-            let presenter = FoodPresenter(interactor: interactor)
-            presenter.getFoodDetail(id: food.id) { result in
-                switch result {
-                case .success(let value):
-                    if let healthLabels = value.healthLabels {
+            
+            presenter.getFoodDetail(id: food.id)
+                .observeOn(MainScheduler.instance)
+                .subscribe { result in
+                    if let healthLabels = result.healthLabels {
                         self.healthLabels.text = healthLabels.joined(separator: ", ")
                     }
-                    if let totalNutrients = value.totalNutrients {
-                        self.nutrients = presenter.getNutrients(nutrients: totalNutrients)
+                    if let totalNutrients = result.totalNutrients {
+                        self.nutrients = self.presenter?.getNutrients(nutrients: totalNutrients) ?? []
                         self.nutrients.removeAll { $0?.label == nil  }
                         self.tableView.reloadData()
                     }
-                    
+                } onError: { error in
+                    print("Error \(error.localizedDescription)")
+                } onCompleted: {
+                    self.activityIndicator.stopAnimating()
                     if self.nutrients.isEmpty {
                         self.tableView.isHidden = true
                         
@@ -68,10 +78,11 @@ class FoodDetailViewController: UIViewController {
                     } else {
                         self.tableView.isHidden = false
                     }
-                case .failure(let error):
-                    print("Error \(error.localizedDescription)")
-                }
-            }
+                    self.healthText.isHidden = false
+                    self.healthLabels.isHidden = false
+                    self.nutrientsLabel.isHidden = false
+                }.disposed(by: disposeBag)
+                
             
             self.isFavorite = presenter.isFavorite(id: food.id)
         }
@@ -79,37 +90,35 @@ class FoodDetailViewController: UIViewController {
     
     @IBAction func onFavoriteButtonClicked(_ sender: Any) {
         
-        let presenter = FoodPresenter(interactor: interactor)
+        guard let presenter = presenter else { return }
         
         if let food = foodData {
             if isFavorite {
-                presenter.removeFavoriteFood(id: food.id) { result in
-                    switch result {
-                    case .success(let value):
-                        if value {
+                presenter.removeFavoriteFood(id: food.id)
+                    .observeOn(MainScheduler.instance)
+                    .subscribe { success in
+                        if success {
                             self.isFavorite = false
                             let alert = UIAlertController(title: "Food Removed", message: "This food has been removed from favorites.", preferredStyle: UIAlertController.Style.alert)
                             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
                         }
-                    case .failure(let error):
+                    } onError: { error in
                         print("Error \(error.localizedDescription)")
-                    }
-                }
+                    }.disposed(by: disposeBag)
             } else {
-                presenter.addFavoriteFood(food: food) { result in
-                    switch result {
-                    case .success(let value):
-                        if value {
+                presenter.addFavoriteFood(food: food)
+                    .observeOn(MainScheduler.instance)
+                    .subscribe { success in
+                        if success {
                             self.isFavorite = true
                             let alert = UIAlertController(title: "Food Added", message: "This food has been added to favorites.", preferredStyle: UIAlertController.Style.alert)
                             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
                         }
-                    case .failure(let error):
+                    } onError: { error in
                         print("Error \(error.localizedDescription)")
-                    }
-                }
+                    }.disposed(by: disposeBag)
             }
         }
     }

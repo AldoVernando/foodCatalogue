@@ -10,8 +10,8 @@ import RealmSwift
 
 final class Injection: NSObject {
     
-    private func provideRemoteDataSource() -> FoodDataSourceProtocol {
-        return FoodDataSource()
+    private func provideRemoteDataSource() -> RemoteDataSourceProtocol {
+        return RemoteDataSource()
     }
     
     private func provideLocaleDataSource() -> LocaleDataSourceProtocol {

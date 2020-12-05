@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol FoodPresenterProtocol {
-    func getFoodList(page: Int, completion: @escaping (Result<[FoodEntity], Error>) -> Void)
-    func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void)
+    func getFoodList(page: Int) -> Observable<[FoodEntity]>
+    func getFoodDetail(id: String) -> Observable<FoodDetailEntity>
     func getNutrients(nutrients: TotalNutrients) -> [NutrientDetailEntity?]
-    func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void)
-    func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void)
+    func getFavoriteFood() -> Observable<[FoodData]>
+    func addFavoriteFood(food: FoodData) -> Observable<Bool>
     func isFavorite(id: String) -> Bool
-    func removeFavoriteFood(id: String, completion: @escaping (Result<Bool, Error>) -> Void)
+    func removeFavoriteFood(id: String) -> Observable<Bool>
 }
 
 class FoodPresenter: FoodPresenterProtocol {
@@ -25,26 +26,12 @@ class FoodPresenter: FoodPresenterProtocol {
         self.foodInteractor = interactor
     }
     
-    func getFoodList(page: Int = 0, completion: @escaping (Result<[FoodEntity], Error>) -> Void) {
-        foodInteractor.getFoodList(page: page) { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func getFoodList(page: Int = 0) -> Observable<[FoodEntity]> {
+        return foodInteractor.getFoodList(page: page)
     }
     
-    func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void) {
-        foodInteractor.getFoodDetail(id: id) { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func getFoodDetail(id: String) -> Observable<FoodDetailEntity> {
+        return foodInteractor.getFoodDetail(id: id)
     }
     
     func getNutrients(nutrients: TotalNutrients) -> [NutrientDetailEntity?] {
@@ -83,40 +70,19 @@ class FoodPresenter: FoodPresenterProtocol {
         return nutrientArray
     }
     
-    func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void) {
-        foodInteractor.getFavoriteFood { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func getFavoriteFood() -> Observable<[FoodData]> {
+        return foodInteractor.getFavoriteFood()
     }
     
-    func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void) {
-        foodInteractor.addFavoriteFood(food: food) { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func addFavoriteFood(food: FoodData) -> Observable<Bool> {
+        return foodInteractor.addFavoriteFood(food: food)
     }
     
     func isFavorite(id: String) -> Bool {
         return foodInteractor.isFavorite(id: id)
     }
     
-    func removeFavoriteFood(id: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        foodInteractor.removeFavoriteFood(id: id) { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func removeFavoriteFood(id: String) -> Observable<Bool> {
+        return foodInteractor.removeFavoriteFood(id: id)
     }
 }

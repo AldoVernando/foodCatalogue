@@ -7,12 +7,13 @@
 
 import Foundation
 import RealmSwift
+import RxSwift
 
 protocol LocaleDataSourceProtocol {
-    func getFoods(result: @escaping (Result<[FoodData], Error>) -> Void)
-    func addFood(food: FoodData, result: @escaping (Result<Bool, Error>) -> Void)
+    func getFoods() -> Observable<[FoodData]>
+    func addFood(food: FoodData) -> Observable<Bool>
     func isFoodExists(id: String) -> Bool
-    func removeFood(id: String, result: @escaping (Result<Bool, Error>) -> Void)
+    func removeFood(id: String) -> Observable<Bool>
 }
 
 class LocaleDataSource: NSObject {
@@ -25,23 +26,35 @@ class LocaleDataSource: NSObject {
 
 extension LocaleDataSource: LocaleDataSourceProtocol {
     
-    func getFoods(result: @escaping (Result<[FoodData], Error>) -> Void) {
-        if let realm = realm {
-            let foods = realm.objects(FoodData.self).sorted(byKeyPath: "name", ascending: true)
-            result(.success(Array(foods)))
+    func getFoods() -> Observable<[FoodData]> {
+        
+        return Observable<[FoodData]>.create { observer in
+            if let realm = self.realm {
+                let foods = realm.objects(FoodData.self).sorted(byKeyPath: "name", ascending: true)
+                observer.onNext(Array(foods))
+                observer.onCompleted()
+            }
+            
+            return Disposables.create()
         }
     }
     
-    func addFood(food: FoodData, result: @escaping (Result<Bool, Error>) -> Void) {
-        if let realm = realm {
-            do {
-                try realm.write {
-                    realm.add(food, update: .all)
-                    result(.success(true))
+    func addFood(food: FoodData) -> Observable<Bool> {
+        
+        return Observable<Bool>.create { observer in
+            if let realm = self.realm {
+                do {
+                    try realm.write {
+                        realm.add(food, update: .all)
+                        observer.onNext(true)
+                        observer.onCompleted()
+                    }
+                } catch let error {
+                    observer.onError(error)
                 }
-            } catch let error {
-                result(.failure(error))
             }
+            
+            return Disposables.create()
         }
     }
     
@@ -52,18 +65,24 @@ extension LocaleDataSource: LocaleDataSourceProtocol {
         return false
     }
     
-    func removeFood(id: String, result: @escaping (Result<Bool, Error>) -> Void) {
-        if let realm = realm {
-            do {
-                try realm.write {
-                    if let object = realm.object(ofType: FoodData.self, forPrimaryKey: id) {
-                        realm.delete(object)
-                        result(.success(true))
+    func removeFood(id: String) -> Observable<Bool> {
+        
+        return Observable<Bool>.create { observer in
+            if let realm = self.realm {
+                do {
+                    try realm.write {
+                        if let object = realm.object(ofType: FoodData.self, forPrimaryKey: id) {
+                            realm.delete(object)
+                            observer.onNext(true)
+                            observer.onCompleted()
+                        }
                     }
+                } catch let error {
+                    observer.onError(error)
                 }
-            } catch let error {
-                result(.failure(error))
             }
+            
+            return Disposables.create()
         }
     }
 }

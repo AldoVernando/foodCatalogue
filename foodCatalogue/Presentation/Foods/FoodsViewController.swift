@@ -7,32 +7,39 @@
 
 import UIKit
 import SDWebImage
+import RxSwift
 
 class FoodsViewController: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
-    private var foodList: [FoodEntity] = []
     private let interactor = Injection.init().provideInteractor()
     private var page: Int = 0
     private var selectedFood: FoodData?
+    private var presenter: FoodPresenter?
+    private let disposeBag = DisposeBag()
+    private var foods: [FoodEntity] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = FoodPresenter(interactor: interactor)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "FoodTableViewCell", bundle: nil), forCellReuseIdentifier: "foodCell")
         
-        let presenter = FoodPresenter(interactor: interactor)
+        guard let presenter = presenter else { return }
         
-        presenter.getFoodList { result in
-            switch result {
-            case .success(let value):
-                self.foodList = value
+        presenter.getFoodList()
+            .observeOn(MainScheduler.instance)
+            .subscribe { result in
+                self.foods = result
                 self.tableView.reloadData()
-            case .failure(let error):
+            } onError: { error in
                 print("Error \(error.localizedDescription)")
-            }
-        }
+            } onCompleted: {
+                self.activityIndicator.stopAnimating()
+                self.tableView.isHidden = false
+            }.disposed(by: disposeBag)
     }
 }
 
@@ -54,13 +61,13 @@ extension FoodsViewController {
 extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodList.count
+        return self.foods.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath) as? FoodTableViewCell {
             
-            let food = foodList[indexPath.row].food
+            let food = self.foods[indexPath.row].food
             cell.foodImage.sd_setImage(with: URL(string: food.image ?? ""), placeholderImage: #imageLiteral(resourceName: "placeholder"), options: .continueInBackground)
             cell.title.text = food.label
             cell.category.text = food.category
@@ -72,27 +79,27 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             
             // pagination
-            if indexPath.row == foodList.count - 1 {
-                let presenter = FoodPresenter(interactor: interactor)
+            if indexPath.row == self.foods.count - 1 {
                 page += 1
-                presenter.getFoodList(page: page) { result in
-                    switch result {
-                    case .success(let value):
-                        self.foodList.append(contentsOf: value)
+                
+                guard let presenter = presenter else { return cell }
+                
+                presenter.getFoodList(page: page)
+                    .observeOn(MainScheduler.instance)
+                    .subscribe { result in
+                        self.foods.append(contentsOf: result)
                         self.tableView.reloadData()
-                    case .failure(let error):
+                    } onError: { error in
                         print("Error \(error.localizedDescription)")
-                    }
-                }
+                    }.disposed(by: disposeBag)
             }
-            
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let food = foodList[indexPath.row].food
+        let food = self.foods[indexPath.row].food
         selectedFood = FoodData(id: food.foodId ?? "", name: food.label ?? "", category: food.category ?? "", image: food.image ?? "")
         
         performSegue(withIdentifier: "goToFoodDetail", sender: self)

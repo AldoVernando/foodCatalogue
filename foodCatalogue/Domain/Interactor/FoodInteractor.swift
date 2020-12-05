@@ -6,14 +6,15 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol FoodUseCase {
-    func getFoodList(page: Int, completion: @escaping (Result<[FoodEntity], Error>) -> Void)
-    func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void)
-    func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void)
-    func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void)
+    func getFoodList(page: Int) -> Observable<[FoodEntity]>
+    func getFoodDetail(id: String) -> Observable<FoodDetailEntity>
+    func getFavoriteFood() -> Observable<[FoodData]>
+    func addFavoriteFood(food: FoodData) -> Observable<Bool>
     func isFavorite(id: String) -> Bool
-    func removeFavoriteFood(id: String, completion: @escaping (Result<Bool, Error>) -> Void)
+    func removeFavoriteFood(id: String) -> Observable<Bool>
 }
 
 class FoodInteractor: FoodUseCase {
@@ -24,62 +25,27 @@ class FoodInteractor: FoodUseCase {
         self.foodRepository = repository
     }
     
-    func getFoodList(page: Int = 0, completion: @escaping (Result<[FoodEntity], Error>) -> Void) {
-        foodRepository.getFoodList(page: page) { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func getFoodList(page: Int = 0) -> Observable<[FoodEntity]> {
+        return foodRepository.getFoodList(page: page)
     }
     
-    func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void) {
-        foodRepository.getFoodDetail(id: id) { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func getFoodDetail(id: String) -> Observable<FoodDetailEntity> {
+        return foodRepository.getFoodDetail(id: id)
     }
     
-    func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void) {
-        foodRepository.getFavoriteFood { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func getFavoriteFood() -> Observable<[FoodData]> {
+        return foodRepository.getFavoriteFood()
     }
     
-    func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void) {
-        foodRepository.addFavoriteFood(food: food) { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func addFavoriteFood(food: FoodData) -> Observable<Bool> {
+        return foodRepository.addFavoriteFood(food: food)
     }
     
     func isFavorite(id: String) -> Bool {
         return foodRepository.isFavorite(id: id)
     }
     
-    func removeFavoriteFood(id: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        foodRepository.removeFavoriteFood(id: id) { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func removeFavoriteFood(id: String) -> Observable<Bool> {
+        return foodRepository.removeFavoriteFood(id: id)
     }
 }

@@ -6,82 +6,48 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol FoodRepositoryProtocol {
-    func getFoodList(page: Int, completion: @escaping (Result<[FoodEntity], Error>) -> Void)
-    func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void)
-    func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void)
-    func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void)
+    func getFoodList(page: Int) -> Observable<[FoodEntity]>
+    func getFoodDetail(id: String) -> Observable<FoodDetailEntity>
+    func getFavoriteFood() -> Observable<[FoodData]>
+    func addFavoriteFood(food: FoodData) -> Observable<Bool>
     func isFavorite(id: String) -> Bool
-    func removeFavoriteFood(id: String, completion: @escaping (Result<Bool, Error>) -> Void)
+    func removeFavoriteFood(id: String) -> Observable<Bool>
 }
 
 class FoodRepository: FoodRepositoryProtocol {
     
-    private let remote: FoodDataSourceProtocol
+    private let remote: RemoteDataSourceProtocol
     private let locale: LocaleDataSourceProtocol
     
-    init(remote: FoodDataSourceProtocol, locale: LocaleDataSourceProtocol) {
+    init(remote: RemoteDataSourceProtocol, locale: LocaleDataSourceProtocol) {
         self.remote = remote
         self.locale = locale
     }
     
-    func getFoodList(page: Int = 0, completion: @escaping (Result<[FoodEntity], Error>) -> Void) {
-        remote.getFoodList(page: page) { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func getFoodList(page: Int = 0) -> Observable<[FoodEntity]> {
+        return remote.getFoodList(page: page)
     }
     
-    func getFoodDetail(id: String, completion: @escaping (Result<FoodDetailEntity, Error>) -> Void) {
-        remote.getFoodDetail(id: id) { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func getFoodDetail(id: String) -> Observable<FoodDetailEntity> {
+        return remote.getFoodDetail(id: id)
     }
     
-    func getFavoriteFood(completion: @escaping (Result<[FoodData], Error>) -> Void) {
-        locale.getFoods { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func getFavoriteFood() -> Observable<[FoodData]> {
+        return locale.getFoods()
     }
     
-    func addFavoriteFood(food: FoodData, completion: @escaping (Result<Bool, Error>) -> Void) {
-        locale.addFood(food: food) { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func addFavoriteFood(food: FoodData) -> Observable<Bool> {
+        return locale.addFood(food: food)
     }
     
     func isFavorite(id: String) -> Bool {
         return locale.isFoodExists(id: id)
     }
     
-    func removeFavoriteFood(id: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        locale.removeFood(id: id) { result in
-            switch result {
-            case .success(let value):
-                completion(.success(value))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func removeFavoriteFood(id: String) -> Observable<Bool> {
+        return locale.removeFood(id: id)
     }
 }
