@@ -10,6 +10,12 @@
 		6A64D2DD98BE573CD0486192 /* Pods_foodCatalogueTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A67C46B2F2B7A4ED7FC326 /* Pods_foodCatalogueTests.framework */; };
 		B50298AE25726D8E00930921 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50298AD25726D8E00930921 /* Helper.swift */; };
 		B50298B325726F8C00930921 /* FoodDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50298B225726F8C00930921 /* FoodDetailEntity.swift */; };
+		B503DE8A257E3C8D00396463 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DE89257E3C8D00396463 /* FoodModel.swift */; };
+		B503DE92257E403100396463 /* NutrientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DE91257E403100396463 /* NutrientModel.swift */; };
+		B503DE98257E42D500396463 /* FoodUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DE97257E42D500396463 /* FoodUIModel.swift */; };
+		B503DEA0257E50BC00396463 /* NutrientUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DE9F257E50BC00396463 /* NutrientUIModel.swift */; };
+		B503DEB0257E5AF900396463 /* FoodDetailUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DEAF257E5AF900396463 /* FoodDetailUIModel.swift */; };
+		B503DEB8257E604400396463 /* FoodDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DEB7257E604400396463 /* FoodDetailModel.swift */; };
 		B50585F9256A53FA00978E27 /* FoodListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50585F8256A53FA00978E27 /* FoodListEntity.swift */; };
 		B50585FE256A544C00978E27 /* FoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50585FD256A544C00978E27 /* FoodEntity.swift */; };
 		B5058603256A54CD00978E27 /* NutrientEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058602256A54CD00978E27 /* NutrientEntity.swift */; };
@@ -67,6 +73,12 @@
 		9E1B4A267D2C66A56D2EE697 /* Pods-foodCatalogue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodCatalogue.debug.xcconfig"; path = "Target Support Files/Pods-foodCatalogue/Pods-foodCatalogue.debug.xcconfig"; sourceTree = "<group>"; };
 		B50298AD25726D8E00930921 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		B50298B225726F8C00930921 /* FoodDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEntity.swift; sourceTree = "<group>"; };
+		B503DE89257E3C8D00396463 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
+		B503DE91257E403100396463 /* NutrientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientModel.swift; sourceTree = "<group>"; };
+		B503DE97257E42D500396463 /* FoodUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodUIModel.swift; sourceTree = "<group>"; };
+		B503DE9F257E50BC00396463 /* NutrientUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientUIModel.swift; sourceTree = "<group>"; };
+		B503DEAF257E5AF900396463 /* FoodDetailUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailUIModel.swift; sourceTree = "<group>"; };
+		B503DEB7257E604400396463 /* FoodDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailModel.swift; sourceTree = "<group>"; };
 		B50585F8256A53FA00978E27 /* FoodListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListEntity.swift; sourceTree = "<group>"; };
 		B50585FD256A544C00978E27 /* FoodEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntity.swift; sourceTree = "<group>"; };
 		B5058602256A54CD00978E27 /* NutrientEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientEntity.swift; sourceTree = "<group>"; };
@@ -156,6 +168,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B503DE88257E3C7500396463 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B503DE89257E3C8D00396463 /* FoodModel.swift */,
+				B503DE91257E403100396463 /* NutrientModel.swift */,
+				B503DEB7257E604400396463 /* FoodDetailModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B503DE96257E42CA00396463 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B503DE97257E42D500396463 /* FoodUIModel.swift */,
+				B503DE9F257E50BC00396463 /* NutrientUIModel.swift */,
+				B503DEAF257E5AF900396463 /* FoodDetailUIModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B50585E4256A4F3800978E27 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +202,7 @@
 		B50585E8256A4F3D00978E27 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				B503DE88257E3C7500396463 /* Model */,
 				B5058638256A79AC00978E27 /* Interactor */,
 			);
 			path = Domain;
@@ -178,6 +211,7 @@
 		B50585ED256A4F6A00978E27 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				B503DE96257E42CA00396463 /* Model */,
 				B5058643256A7A7100978E27 /* Dependency Injection */,
 				B5058637256A79A200978E27 /* Presenter */,
 				B505865C256A7F9000978E27 /* Foods */,
@@ -581,11 +615,17 @@
 				B51934D1256914EE002073BB /* AboutViewController.swift in Sources */,
 				B505864D256A7A9000978E27 /* Injection.swift in Sources */,
 				B519348325690195002073BB /* AppDelegate.swift in Sources */,
+				B503DE8A257E3C8D00396463 /* FoodModel.swift in Sources */,
 				B519348525690195002073BB /* SceneDelegate.swift in Sources */,
+				B503DEA0257E50BC00396463 /* NutrientUIModel.swift in Sources */,
+				B503DE92257E403100396463 /* NutrientModel.swift in Sources */,
 				B50298B325726F8C00930921 /* FoodDetailEntity.swift in Sources */,
+				B503DE98257E42D500396463 /* FoodUIModel.swift in Sources */,
+				B503DEB0257E5AF900396463 /* FoodDetailUIModel.swift in Sources */,
 				B5058603256A54CD00978E27 /* NutrientEntity.swift in Sources */,
 				B505863F256A79E200978E27 /* FoodPresenter.swift in Sources */,
 				B50585FE256A544C00978E27 /* FoodEntity.swift in Sources */,
+				B503DEB8257E604400396463 /* FoodDetailModel.swift in Sources */,
 				B50298AE25726D8E00930921 /* Helper.swift in Sources */,
 				B5058629256A76B900978E27 /* FoodRepository.swift in Sources */,
 				B51934C025690D9E002073BB /* FoodsViewController.swift in Sources */,

@@ -46,9 +46,3 @@ class TotalNutrients: Codable {
     var VITK1: NutrientDetailEntity?
     var WATER: NutrientDetailEntity?
 }
-
-struct FoodDetailData {
-    let id: String
-    let name: String
-    let image: String
-}

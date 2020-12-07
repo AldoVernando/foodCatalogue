@@ -19,7 +19,7 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     private let interactor = Injection.init().provideInteractor()
-    private var nutrients: [NutrientDetailEntity?] = []
+    private var nutrients: [NutrientDetailUIModel] = []
     private var isFavorite: Bool = false {
         didSet {
             if isFavorite {
@@ -49,14 +49,10 @@ class FoodDetailViewController: UIViewController {
             presenter.getFoodDetail(id: food.id)
                 .observeOn(MainScheduler.instance)
                 .subscribe { result in
-                    if let healthLabels = result.healthLabels {
-                        self.healthLabels.text = healthLabels.joined(separator: ", ")
-                    }
-                    if let totalNutrients = result.totalNutrients {
-                        self.nutrients = self.presenter?.getNutrients(nutrients: totalNutrients) ?? []
-                        self.nutrients.removeAll { $0?.label == nil  }
-                        self.tableView.reloadData()
-                    }
+                    self.healthLabels.text = result.healthLabels.joined(separator: ", ")
+                    self.nutrients = self.presenter?.getNutrients(nutrients: result.totalNutrients) ?? []
+                    self.nutrients.removeAll { $0.label == "" }
+                    self.tableView.reloadData()
                 } onError: { error in
                     print("Error \(error.localizedDescription)")
                 } onCompleted: {
@@ -136,8 +132,8 @@ extension FoodDetailViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "nutrientCell", for: indexPath) as? NutrientTableViewCell {
             
             let nutrient = nutrients[indexPath.row]
-            cell.name.text = nutrient?.label ?? ""
-            cell.value.text = "\(nutrient?.quantity ?? 0) \(nutrient?.unit ?? "")"
+            cell.name.text = nutrient.label
+            cell.value.text = "\(nutrient.quantity) \(nutrient.unit)"
             cell.selectionStyle = .none
         
             return cell

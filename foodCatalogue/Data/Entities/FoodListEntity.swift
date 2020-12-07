@@ -8,5 +8,5 @@
 import Foundation
 
 class FoodListEntity: Codable {
-    var hints: [FoodEntity]
+    var hints: [FoodResult]
 }

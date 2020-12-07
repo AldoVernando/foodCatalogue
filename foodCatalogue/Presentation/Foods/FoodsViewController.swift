@@ -18,7 +18,7 @@ class FoodsViewController: UIViewController {
     private var selectedFood: FoodData?
     private var presenter: FoodPresenter?
     private let disposeBag = DisposeBag()
-    private var foods: [FoodEntity] = []
+    private var foods: [FoodUIModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,15 +67,15 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath) as? FoodTableViewCell {
             
-            let food = self.foods[indexPath.row].food
-            cell.foodImage.sd_setImage(with: URL(string: food.image ?? ""), placeholderImage: #imageLiteral(resourceName: "placeholder"), options: .continueInBackground)
+            let food = self.foods[indexPath.row]
+            cell.foodImage.sd_setImage(with: URL(string: food.image), placeholderImage: #imageLiteral(resourceName: "placeholder"), options: .continueInBackground)
             cell.title.text = food.label
             cell.category.text = food.category
-            cell.calories.text = String(food.nutrients.ENERC_KCAL ?? 0) + " KCal"
-            cell.protein.text = String(food.nutrients.PROCNT ?? 0) + " mg"
-            cell.fat.text = String(food.nutrients.FAT ?? 0) + " mg"
-            cell.carbs.text = String(food.nutrients.CHOCDF ?? 0) + " mg"
-            cell.fiber.text = String(food.nutrients.FIBTG ?? 0) + " mg"
+            cell.calories.text = String(food.nutrients.energy) + " KCal"
+            cell.protein.text = String(food.nutrients.protein) + " mg"
+            cell.fat.text = String(food.nutrients.fat) + " mg"
+            cell.carbs.text = String(food.nutrients.carbs) + " mg"
+            cell.fiber.text = String(food.nutrients.fiber) + " mg"
             cell.selectionStyle = .none
             
             // pagination
@@ -99,8 +99,8 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let food = self.foods[indexPath.row].food
-        selectedFood = FoodData(id: food.foodId ?? "", name: food.label ?? "", category: food.category ?? "", image: food.image ?? "")
+        let food = self.foods[indexPath.row]
+        selectedFood = FoodData(id: food.id, name: food.label , category: food.category, image: food.image)
         
         performSegue(withIdentifier: "goToFoodDetail", sender: self)
     }

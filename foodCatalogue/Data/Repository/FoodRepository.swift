@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol FoodRepositoryProtocol {
-    func getFoodList(page: Int) -> Observable<[FoodEntity]>
+    func getFoodList(page: Int) -> Observable<[FoodResult]>
     func getFoodDetail(id: String) -> Observable<FoodDetailEntity>
     func getFavoriteFood() -> Observable<[FoodData]>
     func addFavoriteFood(food: FoodData) -> Observable<Bool>
@@ -27,7 +27,7 @@ class FoodRepository: FoodRepositoryProtocol {
         self.locale = locale
     }
     
-    func getFoodList(page: Int = 0) -> Observable<[FoodEntity]> {
+    func getFoodList(page: Int = 0) -> Observable<[FoodResult]> {
         return remote.getFoodList(page: page)
     }
     

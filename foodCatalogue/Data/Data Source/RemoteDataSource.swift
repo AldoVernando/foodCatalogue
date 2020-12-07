@@ -10,13 +10,13 @@ import Alamofire
 import RxSwift
 
 protocol RemoteDataSourceProtocol {
-    func getFoodList(page: Int) -> Observable<[FoodEntity]>
+    func getFoodList(page: Int) -> Observable<[FoodResult]>
     func getFoodDetail(id: String) -> Observable<FoodDetailEntity>
 }
 
 class RemoteDataSource: RemoteDataSourceProtocol {
     
-    func getFoodList(page: Int = 0) -> Observable<[FoodEntity]> {
+    func getFoodList(page: Int = 0) -> Observable<[FoodResult]> {
         
         let parameters: [String : Any] = [
             "page": page,
@@ -28,7 +28,7 @@ class RemoteDataSource: RemoteDataSourceProtocol {
         let urlParameters = Helper.generateParameter(param: parameters)
         let url = "\(Endpoint.Foods.getList.url)?\(urlParameters)"
         
-        return Observable<[FoodEntity]>.create { observer in
+        return Observable<[FoodResult]>.create { observer in
         
             AF.request(url, method: .get).responseDecodable(of: FoodListEntity.self) { response in
                 switch response.result {

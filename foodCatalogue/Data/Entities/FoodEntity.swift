@@ -8,11 +8,11 @@
 import Foundation
 import RealmSwift
 
-class FoodEntity: Codable {
-    var food: Food
+class FoodResult: Codable {
+    var food: FoodEntity
 }
 
-class Food: Codable {
+class FoodEntity: Codable {
     var foodId: String?
     var label: String?
     var nutrients: NutrientEntity
