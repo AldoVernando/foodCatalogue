@@ -25,7 +25,7 @@ class FavoritesViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let presenter = FoodPresenter(interactor: interactor)
+        let presenter = FoodPresenter()
         
         presenter.getFavoriteFood()
             .observeOn(MainScheduler.instance)

@@ -13,7 +13,6 @@ class FoodsViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
-    private let interactor = Injection.init().provideInteractor()
     private var page: Int = 0
     private var selectedFood: FoodData?
     private var presenter: FoodPresenter?
@@ -22,7 +21,7 @@ class FoodsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = FoodPresenter(interactor: interactor)
+        presenter = FoodPresenter()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "FoodTableViewCell", bundle: nil), forCellReuseIdentifier: "foodCell")

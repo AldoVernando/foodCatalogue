@@ -35,7 +35,7 @@ class FoodDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = FoodPresenter(interactor: interactor)
+        presenter = FoodPresenter()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "NutrientTableViewCell", bundle: nil), forCellReuseIdentifier: "nutrientCell")
