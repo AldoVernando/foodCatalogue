@@ -12,9 +12,8 @@ class FavoritesViewController: UIViewController {
     
     @IBOutlet weak var placeholder: UIStackView!
     @IBOutlet weak var tableView: UITableView!
-    private var foods: [FoodData] = []
-    private let interactor = Injection.init().provideInteractor()
-    private var selectedFood: FoodData?
+    private var foods: [FoodEntity] = []
+    private var selectedFood: FoodEntity?
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -79,7 +78,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let food = foods[indexPath.row]
-        selectedFood = FoodData(id: food.id, name: food.name, category: food.category, image: food.image)
+        selectedFood = FoodEntity(id: food.id, name: food.name, category: food.category, image: food.image)
         
         performSegue(withIdentifier: "goToFoodDetail", sender: self)
     }

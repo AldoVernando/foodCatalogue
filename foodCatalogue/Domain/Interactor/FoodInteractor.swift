@@ -11,8 +11,8 @@ import RxSwift
 protocol FoodUseCase {
     func getFoodList(page: Int) -> Observable<[FoodModel]>
     func getFoodDetail(id: String) -> Observable<FoodDetailModel>
-    func getFavoriteFood() -> Observable<[FoodData]>
-    func addFavoriteFood(food: FoodData) -> Observable<Bool>
+    func getFavoriteFood() -> Observable<[FoodEntity]>
+    func addFavoriteFood(food: FoodEntity) -> Observable<Bool>
     func isFavorite(id: String) -> Bool
     func removeFavoriteFood(id: String) -> Observable<Bool>
 }
@@ -108,11 +108,11 @@ class FoodInteractor: FoodUseCase {
         }
     }
     
-    func getFavoriteFood() -> Observable<[FoodData]> {
+    func getFavoriteFood() -> Observable<[FoodEntity]> {
         return foodRepository.getFavoriteFood()
     }
     
-    func addFavoriteFood(food: FoodData) -> Observable<Bool> {
+    func addFavoriteFood(food: FoodEntity) -> Observable<Bool> {
         return foodRepository.addFavoriteFood(food: food)
     }
     

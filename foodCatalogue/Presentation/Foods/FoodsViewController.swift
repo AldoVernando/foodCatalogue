@@ -14,7 +14,7 @@ class FoodsViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     private var page: Int = 0
-    private var selectedFood: FoodData?
+    private var selectedFood: FoodEntity?
     private var presenter: FoodPresenter?
     private let disposeBag = DisposeBag()
     private var foods: [FoodUIModel] = []
@@ -99,7 +99,7 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let food = self.foods[indexPath.row]
-        selectedFood = FoodData(id: food.id, name: food.label , category: food.category, image: food.image)
+        selectedFood = FoodEntity(id: food.id, name: food.label , category: food.category, image: food.image)
         
         performSegue(withIdentifier: "goToFoodDetail", sender: self)
     }

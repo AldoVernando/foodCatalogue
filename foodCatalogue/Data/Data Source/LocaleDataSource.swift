@@ -10,8 +10,8 @@ import RealmSwift
 import RxSwift
 
 protocol LocaleDataSourceProtocol {
-    func getFoods() -> Observable<[FoodData]>
-    func addFood(food: FoodData) -> Observable<Bool>
+    func getFoods() -> Observable<[FoodEntity]>
+    func addFood(food: FoodEntity) -> Observable<Bool>
     func isFoodExists(id: String) -> Bool
     func removeFood(id: String) -> Observable<Bool>
 }
@@ -26,11 +26,11 @@ class LocaleDataSource: NSObject {
 
 extension LocaleDataSource: LocaleDataSourceProtocol {
     
-    func getFoods() -> Observable<[FoodData]> {
+    func getFoods() -> Observable<[FoodEntity]> {
         
-        return Observable<[FoodData]>.create { observer in
+        return Observable<[FoodEntity]>.create { observer in
             if let realm = self.realm {
-                let foods = realm.objects(FoodData.self).sorted(byKeyPath: "name", ascending: true)
+                let foods = realm.objects(FoodEntity.self).sorted(byKeyPath: "name", ascending: true)
                 observer.onNext(Array(foods))
                 observer.onCompleted()
             }
@@ -39,7 +39,7 @@ extension LocaleDataSource: LocaleDataSourceProtocol {
         }
     }
     
-    func addFood(food: FoodData) -> Observable<Bool> {
+    func addFood(food: FoodEntity) -> Observable<Bool> {
         
         return Observable<Bool>.create { observer in
             if let realm = self.realm {
@@ -60,7 +60,7 @@ extension LocaleDataSource: LocaleDataSourceProtocol {
     
     func isFoodExists(id: String) -> Bool {
         if let realm = realm {
-            return realm.object(ofType: FoodData.self, forPrimaryKey: id) != nil
+            return realm.object(ofType: FoodEntity.self, forPrimaryKey: id) != nil
         }
         return false
     }
@@ -71,7 +71,7 @@ extension LocaleDataSource: LocaleDataSourceProtocol {
             if let realm = self.realm {
                 do {
                     try realm.write {
-                        if let object = realm.object(ofType: FoodData.self, forPrimaryKey: id) {
+                        if let object = realm.object(ofType: FoodEntity.self, forPrimaryKey: id) {
                             realm.delete(object)
                             observer.onNext(true)
                             observer.onCompleted()

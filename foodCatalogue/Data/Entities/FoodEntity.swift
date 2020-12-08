@@ -8,20 +8,7 @@
 import Foundation
 import RealmSwift
 
-class FoodResult: Codable {
-    var food: FoodEntity
-}
-
-class FoodEntity: Codable {
-    var foodId: String?
-    var label: String?
-    var nutrients: NutrientEntity
-    var category: String?
-    var categoryLabel: String?
-    var image: String?
-}
-
-class FoodData: Object {
+class FoodEntity: Object {
     @objc dynamic var id: String = ""
     @objc dynamic var name: String = ""
     @objc dynamic var category: String = ""

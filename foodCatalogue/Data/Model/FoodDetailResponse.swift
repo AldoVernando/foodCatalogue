@@ -1,13 +1,13 @@
 //
-//  FoodDetailEntity.swift
+//  FoodDetailResponse.swift
 //  foodCatalogue
 //
-//  Created by aldo vernando on 28/11/20.
+//  Created by aldo vernando on 08/12/20.
 //
 
 import Foundation
 
-class FoodDetailEntity: Codable {
+class FoodDetailResponse: Codable {
     var calories: Double?
     var totalWeight: Double?
     var healthLabels: [String]?

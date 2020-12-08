@@ -9,10 +9,10 @@ import Foundation
 import RxSwift
 
 protocol FoodRepositoryProtocol {
-    func getFoodList(page: Int) -> Observable<[FoodResult]>
-    func getFoodDetail(id: String) -> Observable<FoodDetailEntity>
-    func getFavoriteFood() -> Observable<[FoodData]>
-    func addFavoriteFood(food: FoodData) -> Observable<Bool>
+    func getFoodList(page: Int) -> Observable<[FoodResultResponse]>
+    func getFoodDetail(id: String) -> Observable<FoodDetailResponse>
+    func getFavoriteFood() -> Observable<[FoodEntity]>
+    func addFavoriteFood(food: FoodEntity) -> Observable<Bool>
     func isFavorite(id: String) -> Bool
     func removeFavoriteFood(id: String) -> Observable<Bool>
 }
@@ -27,19 +27,19 @@ class FoodRepository: FoodRepositoryProtocol {
         self.locale = locale
     }
     
-    func getFoodList(page: Int = 0) -> Observable<[FoodResult]> {
+    func getFoodList(page: Int = 0) -> Observable<[FoodResultResponse]> {
         return remote.getFoodList(page: page)
     }
     
-    func getFoodDetail(id: String) -> Observable<FoodDetailEntity> {
+    func getFoodDetail(id: String) -> Observable<FoodDetailResponse> {
         return remote.getFoodDetail(id: id)
     }
     
-    func getFavoriteFood() -> Observable<[FoodData]> {
+    func getFavoriteFood() -> Observable<[FoodEntity]> {
         return locale.getFoods()
     }
     
-    func addFavoriteFood(food: FoodData) -> Observable<Bool> {
+    func addFavoriteFood(food: FoodEntity) -> Observable<Bool> {
         return locale.addFood(food: food)
     }
     

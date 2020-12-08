@@ -9,16 +9,13 @@
 /* Begin PBXBuildFile section */
 		6A64D2DD98BE573CD0486192 /* Pods_foodCatalogueTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A67C46B2F2B7A4ED7FC326 /* Pods_foodCatalogueTests.framework */; };
 		B50298AE25726D8E00930921 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50298AD25726D8E00930921 /* Helper.swift */; };
-		B50298B325726F8C00930921 /* FoodDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50298B225726F8C00930921 /* FoodDetailEntity.swift */; };
 		B503DE8A257E3C8D00396463 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DE89257E3C8D00396463 /* FoodModel.swift */; };
 		B503DE92257E403100396463 /* NutrientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DE91257E403100396463 /* NutrientModel.swift */; };
 		B503DE98257E42D500396463 /* FoodUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DE97257E42D500396463 /* FoodUIModel.swift */; };
 		B503DEA0257E50BC00396463 /* NutrientUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DE9F257E50BC00396463 /* NutrientUIModel.swift */; };
 		B503DEB0257E5AF900396463 /* FoodDetailUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DEAF257E5AF900396463 /* FoodDetailUIModel.swift */; };
 		B503DEB8257E604400396463 /* FoodDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DEB7257E604400396463 /* FoodDetailModel.swift */; };
-		B50585F9256A53FA00978E27 /* FoodListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50585F8256A53FA00978E27 /* FoodListEntity.swift */; };
 		B50585FE256A544C00978E27 /* FoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50585FD256A544C00978E27 /* FoodEntity.swift */; };
-		B5058603256A54CD00978E27 /* NutrientEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058602256A54CD00978E27 /* NutrientEntity.swift */; };
 		B5058608256A556A00978E27 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058607256A556A00978E27 /* RemoteDataSource.swift */; };
 		B5058616256A568700978E27 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058615256A568700978E27 /* Endpoint.swift */; };
 		B505861B256A56FD00978E27 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505861A256A56FD00978E27 /* Constant.swift */; };
@@ -39,6 +36,9 @@
 		B51934C025690D9E002073BB /* FoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51934BF25690D9E002073BB /* FoodsViewController.swift */; };
 		B51934C825690DAE002073BB /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51934C725690DAE002073BB /* FavoritesViewController.swift */; };
 		B51934D1256914EE002073BB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51934D0256914EE002073BB /* AboutViewController.swift */; };
+		B519E3EA257FE4F8005A8318 /* FoodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519E3E9257FE4F8005A8318 /* FoodResponse.swift */; };
+		B519E3F2257FE531005A8318 /* FoodDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519E3F1257FE531005A8318 /* FoodDetailResponse.swift */; };
+		B519E3F7257FE5FE005A8318 /* NutrientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519E3F6257FE5FE005A8318 /* NutrientResponse.swift */; };
 		B5DCB16F25738C5C00A2AC9F /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCB16E25738C5C00A2AC9F /* FoodDetailViewController.swift */; };
 		B5DCB180257390EF00A2AC9F /* NutrientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCB17E257390EF00A2AC9F /* NutrientTableViewCell.swift */; };
 		B5DCB181257390EF00A2AC9F /* NutrientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5DCB17F257390EF00A2AC9F /* NutrientTableViewCell.xib */; };
@@ -72,16 +72,13 @@
 		7B85EA3C744D9077524C6456 /* Pods-foodCatalogue-foodCatalogueUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodCatalogue-foodCatalogueUITests.debug.xcconfig"; path = "Target Support Files/Pods-foodCatalogue-foodCatalogueUITests/Pods-foodCatalogue-foodCatalogueUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E1B4A267D2C66A56D2EE697 /* Pods-foodCatalogue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodCatalogue.debug.xcconfig"; path = "Target Support Files/Pods-foodCatalogue/Pods-foodCatalogue.debug.xcconfig"; sourceTree = "<group>"; };
 		B50298AD25726D8E00930921 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		B50298B225726F8C00930921 /* FoodDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailEntity.swift; sourceTree = "<group>"; };
 		B503DE89257E3C8D00396463 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		B503DE91257E403100396463 /* NutrientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientModel.swift; sourceTree = "<group>"; };
 		B503DE97257E42D500396463 /* FoodUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodUIModel.swift; sourceTree = "<group>"; };
 		B503DE9F257E50BC00396463 /* NutrientUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientUIModel.swift; sourceTree = "<group>"; };
 		B503DEAF257E5AF900396463 /* FoodDetailUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailUIModel.swift; sourceTree = "<group>"; };
 		B503DEB7257E604400396463 /* FoodDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailModel.swift; sourceTree = "<group>"; };
-		B50585F8256A53FA00978E27 /* FoodListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListEntity.swift; sourceTree = "<group>"; };
 		B50585FD256A544C00978E27 /* FoodEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntity.swift; sourceTree = "<group>"; };
-		B5058602256A54CD00978E27 /* NutrientEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientEntity.swift; sourceTree = "<group>"; };
 		B5058607256A556A00978E27 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
 		B5058615256A568700978E27 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		B505861A256A56FD00978E27 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -108,6 +105,9 @@
 		B51934BF25690D9E002073BB /* FoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsViewController.swift; sourceTree = "<group>"; };
 		B51934C725690DAE002073BB /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		B51934D0256914EE002073BB /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		B519E3E9257FE4F8005A8318 /* FoodResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodResponse.swift; sourceTree = "<group>"; };
+		B519E3F1257FE531005A8318 /* FoodDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailResponse.swift; sourceTree = "<group>"; };
+		B519E3F6257FE5FE005A8318 /* NutrientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientResponse.swift; sourceTree = "<group>"; };
 		B5DCB16E25738C5C00A2AC9F /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		B5DCB17E257390EF00A2AC9F /* NutrientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientTableViewCell.swift; sourceTree = "<group>"; };
 		B5DCB17F257390EF00A2AC9F /* NutrientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutrientTableViewCell.xib; sourceTree = "<group>"; };
@@ -191,6 +191,7 @@
 		B50585E4256A4F3800978E27 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B519E3E8257FE4E7005A8318 /* Model */,
 				B505861F256A765D00978E27 /* Repository */,
 				B50585EF256A52D400978E27 /* Data Source */,
 				B50585EE256A522200978E27 /* Entities */,
@@ -225,10 +226,7 @@
 		B50585EE256A522200978E27 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				B50585F8256A53FA00978E27 /* FoodListEntity.swift */,
 				B50585FD256A544C00978E27 /* FoodEntity.swift */,
-				B5058602256A54CD00978E27 /* NutrientEntity.swift */,
-				B50298B225726F8C00930921 /* FoodDetailEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -349,6 +347,16 @@
 				B51934A925690198002073BB /* Info.plist */,
 			);
 			path = foodCatalogueUITests;
+			sourceTree = "<group>";
+		};
+		B519E3E8257FE4E7005A8318 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B519E3E9257FE4F8005A8318 /* FoodResponse.swift */,
+				B519E3F1257FE531005A8318 /* FoodDetailResponse.swift */,
+				B519E3F6257FE5FE005A8318 /* NutrientResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B5DCB16D25738C2800A2AC9F /* Food Detail */ = {
@@ -609,20 +617,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B50585F9256A53FA00978E27 /* FoodListEntity.swift in Sources */,
+				B519E3EA257FE4F8005A8318 /* FoodResponse.swift in Sources */,
 				B5058608256A556A00978E27 /* RemoteDataSource.swift in Sources */,
 				B5DCB16F25738C5C00A2AC9F /* FoodDetailViewController.swift in Sources */,
 				B51934D1256914EE002073BB /* AboutViewController.swift in Sources */,
 				B505864D256A7A9000978E27 /* Injection.swift in Sources */,
+				B519E3F7257FE5FE005A8318 /* NutrientResponse.swift in Sources */,
 				B519348325690195002073BB /* AppDelegate.swift in Sources */,
 				B503DE8A257E3C8D00396463 /* FoodModel.swift in Sources */,
 				B519348525690195002073BB /* SceneDelegate.swift in Sources */,
 				B503DEA0257E50BC00396463 /* NutrientUIModel.swift in Sources */,
 				B503DE92257E403100396463 /* NutrientModel.swift in Sources */,
-				B50298B325726F8C00930921 /* FoodDetailEntity.swift in Sources */,
 				B503DE98257E42D500396463 /* FoodUIModel.swift in Sources */,
 				B503DEB0257E5AF900396463 /* FoodDetailUIModel.swift in Sources */,
-				B5058603256A54CD00978E27 /* NutrientEntity.swift in Sources */,
 				B505863F256A79E200978E27 /* FoodPresenter.swift in Sources */,
 				B50585FE256A544C00978E27 /* FoodEntity.swift in Sources */,
 				B503DEB8257E604400396463 /* FoodDetailModel.swift in Sources */,
@@ -637,6 +644,7 @@
 				B5058616256A568700978E27 /* Endpoint.swift in Sources */,
 				B5DCB1862573A9C100A2AC9F /* LocaleDataSource.swift in Sources */,
 				B519348D25690195002073BB /* foodCatalogue.xcdatamodeld in Sources */,
+				B519E3F2257FE531005A8318 /* FoodDetailResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,13 +10,13 @@ import Alamofire
 import RxSwift
 
 protocol RemoteDataSourceProtocol {
-    func getFoodList(page: Int) -> Observable<[FoodResult]>
-    func getFoodDetail(id: String) -> Observable<FoodDetailEntity>
+    func getFoodList(page: Int) -> Observable<[FoodResultResponse]>
+    func getFoodDetail(id: String) -> Observable<FoodDetailResponse>
 }
 
 class RemoteDataSource: RemoteDataSourceProtocol {
     
-    func getFoodList(page: Int = 0) -> Observable<[FoodResult]> {
+    func getFoodList(page: Int = 0) -> Observable<[FoodResultResponse]> {
         
         let parameters: [String : Any] = [
             "page": page,
@@ -28,9 +28,9 @@ class RemoteDataSource: RemoteDataSourceProtocol {
         let urlParameters = Helper.generateParameter(param: parameters)
         let url = "\(Endpoint.Foods.getList.url)?\(urlParameters)"
         
-        return Observable<[FoodResult]>.create { observer in
+        return Observable<[FoodResultResponse]>.create { observer in
         
-            AF.request(url, method: .get).responseDecodable(of: FoodListEntity.self) { response in
+            AF.request(url, method: .get).responseDecodable(of: FoodListResponse.self) { response in
                 switch response.result {
                 case .success(let value):
                     observer.onNext(value.hints)
@@ -44,7 +44,7 @@ class RemoteDataSource: RemoteDataSourceProtocol {
         }
     }
     
-    func getFoodDetail(id: String) -> Observable<FoodDetailEntity> {
+    func getFoodDetail(id: String) -> Observable<FoodDetailResponse> {
     
         let headers: HTTPHeaders = [
             "Content-Type": Constant.APP_JSON
@@ -68,9 +68,9 @@ class RemoteDataSource: RemoteDataSourceProtocol {
             ]
         ]
         
-        return Observable<FoodDetailEntity>.create { observer in
+        return Observable<FoodDetailResponse>.create { observer in
         
-            AF.request(url, method: .post, parameters: bodyParameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: FoodDetailEntity.self) { response in
+            AF.request(url, method: .post, parameters: bodyParameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: FoodDetailResponse.self) { response in
                 switch response.result {
                 case .success(let value):
                     observer.onNext(value)

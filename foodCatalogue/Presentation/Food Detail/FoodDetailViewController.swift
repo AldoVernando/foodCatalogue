@@ -18,7 +18,6 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
-    private let interactor = Injection.init().provideInteractor()
     private var nutrients: [NutrientDetailUIModel] = []
     private var isFavorite: Bool = false {
         didSet {
@@ -29,7 +28,7 @@ class FoodDetailViewController: UIViewController {
             }
         }
     }
-    var foodData: FoodData?
+    var foodData: FoodEntity?
     private var presenter: FoodPresenter?
     private let disposeBag = DisposeBag()
     

@@ -12,8 +12,8 @@ protocol FoodPresenterProtocol {
     func getFoodList(page: Int) -> Observable<[FoodUIModel]>
     func getFoodDetail(id: String) -> Observable<FoodDetailUIModel>
     func getNutrients(nutrients: TotalNutrientsUIModel) -> [NutrientDetailUIModel]
-    func getFavoriteFood() -> Observable<[FoodData]>
-    func addFavoriteFood(food: FoodData) -> Observable<Bool>
+    func getFavoriteFood() -> Observable<[FoodEntity]>
+    func addFavoriteFood(food: FoodEntity) -> Observable<Bool>
     func isFavorite(id: String) -> Bool
     func removeFavoriteFood(id: String) -> Observable<Bool>
 }
@@ -144,11 +144,11 @@ class FoodPresenter: FoodPresenterProtocol {
         return nutrientArray
     }
     
-    func getFavoriteFood() -> Observable<[FoodData]> {
+    func getFavoriteFood() -> Observable<[FoodEntity]> {
         return foodInteractor.getFavoriteFood()
     }
     
-    func addFavoriteFood(food: FoodData) -> Observable<Bool> {
+    func addFavoriteFood(food: FoodEntity) -> Observable<Bool> {
         return foodInteractor.addFavoriteFood(food: food)
     }
     
