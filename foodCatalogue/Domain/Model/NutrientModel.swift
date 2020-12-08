@@ -28,7 +28,7 @@ class NutrientDetailModel {
     var quantity: Double
     var unit: String
     
-    init(_ entity: NutrientDetailEntity?) {
+    init(_ entity: NutrientDetailResponse?) {
         self.label = entity?.label ?? ""
         self.quantity = entity?.quantity ?? 0
         self.unit = entity?.unit ?? ""

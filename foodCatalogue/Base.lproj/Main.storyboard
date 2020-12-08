@@ -236,7 +236,7 @@
         <!--Food's Detail-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FoodDetailViewController" customModule="foodCatalogue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="foodDetailViewController" id="BYZ-38-t0r" customClass="FoodDetailViewController" customModule="foodCatalogue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -342,8 +342,8 @@
         <image name="linkedin" width="480" height="480"/>
         <image name="me" width="1478" height="1108"/>
         <image name="placeholder" width="450" height="450"/>
-        <image name="star" catalog="system" width="128" height="116"/>
         <image name="star" width="20" height="20"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -18,7 +18,7 @@ class FoodResultResponse: Codable {
 class FoodResponse: Codable {
     var foodId: String?
     var label: String?
-    var nutrients: NutrientEntity
+    var nutrients: NutrientResponse
     var category: String?
     var categoryLabel: String?
     var image: String?

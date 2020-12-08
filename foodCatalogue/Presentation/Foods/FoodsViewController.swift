@@ -14,10 +14,10 @@ class FoodsViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     private var page: Int = 0
-    private var selectedFood: FoodEntity?
     private var presenter: FoodPresenter?
     private let disposeBag = DisposeBag()
     private var foods: [FoodUIModel] = []
+    private let router: Router = Router()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,17 +43,17 @@ class FoodsViewController: UIViewController {
 }
 
 
-// MARK: Segue
-extension FoodsViewController {
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToFoodDetail" {
-            if let vc = segue.destination as? FoodDetailViewController {
-                vc.foodData = selectedFood
-            }
-        }
-    }
-}
+//// MARK: Segue
+//extension FoodsViewController {
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "goToFoodDetail" {
+//            if let vc = segue.destination as? FoodDetailViewController {
+//                vc.foodData = selectedFood
+//            }
+//        }
+//    }
+//}
 
 
 // MARK: UITableView
@@ -99,8 +99,9 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let food = self.foods[indexPath.row]
-        selectedFood = FoodEntity(id: food.id, name: food.label , category: food.category, image: food.image)
-        
-        performSegue(withIdentifier: "goToFoodDetail", sender: self)
+        let selectedFood = FoodEntity(id: food.id, name: food.label , category: food.category, image: food.image)
+        router.navigateToFoodDetailScene(food: selectedFood, sender: self)
+//        }
+//        performSegue(withIdentifier: "goToFoodDetail", sender: self)
     }
 }

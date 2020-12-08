@@ -29,7 +29,7 @@ class FoodDetailViewController: UIViewController {
         }
     }
     var foodData: FoodEntity?
-    private var presenter: FoodPresenter?
+    var presenter: FoodPresenter?
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {

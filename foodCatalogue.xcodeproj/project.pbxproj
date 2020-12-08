@@ -39,6 +39,7 @@
 		B519E3EA257FE4F8005A8318 /* FoodResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519E3E9257FE4F8005A8318 /* FoodResponse.swift */; };
 		B519E3F2257FE531005A8318 /* FoodDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519E3F1257FE531005A8318 /* FoodDetailResponse.swift */; };
 		B519E3F7257FE5FE005A8318 /* NutrientResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519E3F6257FE5FE005A8318 /* NutrientResponse.swift */; };
+		B519E407257FEA16005A8318 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519E406257FEA16005A8318 /* Router.swift */; };
 		B5DCB16F25738C5C00A2AC9F /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCB16E25738C5C00A2AC9F /* FoodDetailViewController.swift */; };
 		B5DCB180257390EF00A2AC9F /* NutrientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCB17E257390EF00A2AC9F /* NutrientTableViewCell.swift */; };
 		B5DCB181257390EF00A2AC9F /* NutrientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5DCB17F257390EF00A2AC9F /* NutrientTableViewCell.xib */; };
@@ -108,6 +109,7 @@
 		B519E3E9257FE4F8005A8318 /* FoodResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodResponse.swift; sourceTree = "<group>"; };
 		B519E3F1257FE531005A8318 /* FoodDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailResponse.swift; sourceTree = "<group>"; };
 		B519E3F6257FE5FE005A8318 /* NutrientResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientResponse.swift; sourceTree = "<group>"; };
+		B519E406257FEA16005A8318 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B5DCB16E25738C5C00A2AC9F /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		B5DCB17E257390EF00A2AC9F /* NutrientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientTableViewCell.swift; sourceTree = "<group>"; };
 		B5DCB17F257390EF00A2AC9F /* NutrientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutrientTableViewCell.xib; sourceTree = "<group>"; };
@@ -218,7 +220,8 @@
 				B505865C256A7F9000978E27 /* Foods */,
 				B5DCB16D25738C2800A2AC9F /* Food Detail */,
 				B5DCB1A02573C1D700A2AC9F /* Favorites */,
-				B51934D0256914EE002073BB /* AboutViewController.swift */,
+				B519E404257FE9ED005A8318 /* About */,
+				B519E405257FE9F8005A8318 /* Router */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -357,6 +360,22 @@
 				B519E3F6257FE5FE005A8318 /* NutrientResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B519E404257FE9ED005A8318 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				B51934D0256914EE002073BB /* AboutViewController.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		B519E405257FE9F8005A8318 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B519E406257FEA16005A8318 /* Router.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		B5DCB16D25738C2800A2AC9F /* Food Detail */ = {
@@ -638,6 +657,7 @@
 				B51934C025690D9E002073BB /* FoodsViewController.swift in Sources */,
 				B505861B256A56FD00978E27 /* Constant.swift in Sources */,
 				B51934C825690DAE002073BB /* FavoritesViewController.swift in Sources */,
+				B519E407257FEA16005A8318 /* Router.swift in Sources */,
 				B5058633256A787A00978E27 /* FoodInteractor.swift in Sources */,
 				B5DCB180257390EF00A2AC9F /* NutrientTableViewCell.swift in Sources */,
 				B5058672256A874400978E27 /* FoodTableViewCell.swift in Sources */,
