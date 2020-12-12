@@ -16,7 +16,7 @@ class FoodsViewController: UIViewController {
     private var page: Int = 0
     private var presenter: FoodPresenter?
     private let disposeBag = DisposeBag()
-    private var foods: [FoodUIModel] = []
+    private var foods: [FoodModel] = []
     private let router: Router = Router()
     
     override func viewDidLoad() {
@@ -70,11 +70,11 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.foodImage.sd_setImage(with: URL(string: food.image), placeholderImage: #imageLiteral(resourceName: "placeholder"), options: .continueInBackground)
             cell.title.text = food.label
             cell.category.text = food.category
-            cell.calories.text = String(food.nutrients.energy) + " KCal"
-            cell.protein.text = String(food.nutrients.protein) + " mg"
-            cell.fat.text = String(food.nutrients.fat) + " mg"
-            cell.carbs.text = String(food.nutrients.carbs) + " mg"
-            cell.fiber.text = String(food.nutrients.fiber) + " mg"
+            cell.calories.text = String(food.nutrients?.energy ?? 0) + " KCal"
+            cell.protein.text = String(food.nutrients?.protein ?? 0) + " mg"
+            cell.fat.text = String(food.nutrients?.fat ?? 0) + " mg"
+            cell.carbs.text = String(food.nutrients?.carbs ?? 0) + " mg"
+            cell.fiber.text = String(food.nutrients?.fiber ?? 0) + " mg"
             cell.selectionStyle = .none
             
             // pagination
@@ -99,9 +99,7 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let food = self.foods[indexPath.row]
-        let selectedFood = FoodEntity(id: food.id, name: food.label , category: food.category, image: food.image)
+        let selectedFood = FoodModel(id: food.id, label: food.label, nutrients: food.nutrients , category: food.category, categoryLabel: food.categoryLabel, image: food.image)
         router.navigateToFoodDetailScene(food: selectedFood, sender: self)
-//        }
-//        performSegue(withIdentifier: "goToFoodDetail", sender: self)
     }
 }

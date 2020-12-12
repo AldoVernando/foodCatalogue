@@ -12,8 +12,8 @@ class FavoritesViewController: UIViewController {
     
     @IBOutlet weak var placeholder: UIStackView!
     @IBOutlet weak var tableView: UITableView!
-    private var foods: [FoodEntity] = []
-    private var selectedFood: FoodEntity?
+    private var foods: [FoodModel] = []
+    private var selectedFood: FoodModel?
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -67,7 +67,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
             
             let food = foods[indexPath.row]
             cell.foodImage.sd_setImage(with: URL(string: food.image), placeholderImage: #imageLiteral(resourceName: "placeholder"), options: .continueInBackground)
-            cell.title.text = food.name
+            cell.title.text = food.label
             cell.category.text = food.category
             cell.selectionStyle = .none
             
@@ -78,8 +78,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let food = foods[indexPath.row]
-        selectedFood = FoodEntity(id: food.id, name: food.name, category: food.category, image: food.image)
-        
+        selectedFood = FoodModel(id: food.id, label: food.label, nutrients: food.nutrients, category: food.category, categoryLabel: food.categoryLabel, image: food.image)
         performSegue(withIdentifier: "goToFoodDetail", sender: self)
     }
 }

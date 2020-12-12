@@ -11,9 +11,6 @@
 		B50298AE25726D8E00930921 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50298AD25726D8E00930921 /* Helper.swift */; };
 		B503DE8A257E3C8D00396463 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DE89257E3C8D00396463 /* FoodModel.swift */; };
 		B503DE92257E403100396463 /* NutrientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DE91257E403100396463 /* NutrientModel.swift */; };
-		B503DE98257E42D500396463 /* FoodUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DE97257E42D500396463 /* FoodUIModel.swift */; };
-		B503DEA0257E50BC00396463 /* NutrientUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DE9F257E50BC00396463 /* NutrientUIModel.swift */; };
-		B503DEB0257E5AF900396463 /* FoodDetailUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DEAF257E5AF900396463 /* FoodDetailUIModel.swift */; };
 		B503DEB8257E604400396463 /* FoodDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503DEB7257E604400396463 /* FoodDetailModel.swift */; };
 		B50585FE256A544C00978E27 /* FoodEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50585FD256A544C00978E27 /* FoodEntity.swift */; };
 		B5058608256A556A00978E27 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058607256A556A00978E27 /* RemoteDataSource.swift */; };
@@ -75,9 +72,6 @@
 		B50298AD25726D8E00930921 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		B503DE89257E3C8D00396463 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		B503DE91257E403100396463 /* NutrientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientModel.swift; sourceTree = "<group>"; };
-		B503DE97257E42D500396463 /* FoodUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodUIModel.swift; sourceTree = "<group>"; };
-		B503DE9F257E50BC00396463 /* NutrientUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientUIModel.swift; sourceTree = "<group>"; };
-		B503DEAF257E5AF900396463 /* FoodDetailUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailUIModel.swift; sourceTree = "<group>"; };
 		B503DEB7257E604400396463 /* FoodDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailModel.swift; sourceTree = "<group>"; };
 		B50585FD256A544C00978E27 /* FoodEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntity.swift; sourceTree = "<group>"; };
 		B5058607256A556A00978E27 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
@@ -180,16 +174,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B503DE96257E42CA00396463 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B503DE97257E42D500396463 /* FoodUIModel.swift */,
-				B503DE9F257E50BC00396463 /* NutrientUIModel.swift */,
-				B503DEAF257E5AF900396463 /* FoodDetailUIModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		B50585E4256A4F3800978E27 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,7 +198,6 @@
 		B50585ED256A4F6A00978E27 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				B503DE96257E42CA00396463 /* Model */,
 				B5058643256A7A7100978E27 /* Dependency Injection */,
 				B5058637256A79A200978E27 /* Presenter */,
 				B505865C256A7F9000978E27 /* Foods */,
@@ -645,10 +628,7 @@
 				B519348325690195002073BB /* AppDelegate.swift in Sources */,
 				B503DE8A257E3C8D00396463 /* FoodModel.swift in Sources */,
 				B519348525690195002073BB /* SceneDelegate.swift in Sources */,
-				B503DEA0257E50BC00396463 /* NutrientUIModel.swift in Sources */,
 				B503DE92257E403100396463 /* NutrientModel.swift in Sources */,
-				B503DE98257E42D500396463 /* FoodUIModel.swift in Sources */,
-				B503DEB0257E5AF900396463 /* FoodDetailUIModel.swift in Sources */,
 				B505863F256A79E200978E27 /* FoodPresenter.swift in Sources */,
 				B50585FE256A544C00978E27 /* FoodEntity.swift in Sources */,
 				B503DEB8257E604400396463 /* FoodDetailModel.swift in Sources */,

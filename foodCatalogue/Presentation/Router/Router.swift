@@ -8,12 +8,12 @@
 import UIKit
 
 protocol RouterProtocol {
-    func navigateToFoodDetailScene(food: FoodEntity, sender: UIViewController)
+    func navigateToFoodDetailScene(food: FoodModel, sender: UIViewController)
 }
 
 class Router: RouterProtocol {
     
-    func navigateToFoodDetailScene(food: FoodEntity, sender: UIViewController) {
+    func navigateToFoodDetailScene(food: FoodModel, sender: UIViewController) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "foodDetailViewController") as! FoodDetailViewController
         vc.modalPresentationStyle = .fullScreen

@@ -18,7 +18,7 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
-    private var nutrients: [NutrientDetailUIModel] = []
+    private var nutrients: [NutrientDetailModel] = []
     private var isFavorite: Bool = false {
         didSet {
             if isFavorite {
@@ -28,7 +28,7 @@ class FoodDetailViewController: UIViewController {
             }
         }
     }
-    var foodData: FoodEntity?
+    var foodData: FoodModel?
     var presenter: FoodPresenter?
     private let disposeBag = DisposeBag()
     
@@ -42,16 +42,20 @@ class FoodDetailViewController: UIViewController {
         guard let presenter = presenter else { return }
         
         if let food = foodData {
-            foodName.text = food.name
+            foodName.text = food.label
             foodImage.sd_setImage(with: URL(string: food.image), placeholderImage: #imageLiteral(resourceName: "placeholder"), options: .continueInBackground)
             
             presenter.getFoodDetail(id: food.id)
                 .observeOn(MainScheduler.instance)
                 .subscribe { result in
                     self.healthLabels.text = result.healthLabels.joined(separator: ", ")
-                    self.nutrients = self.presenter?.getNutrients(nutrients: result.totalNutrients) ?? []
-                    self.nutrients.removeAll { $0.label == "" }
-                    self.tableView.reloadData()
+                    if let totalNutrients = result.totalNutrients {
+                        if let nutrients = self.presenter?.getNutrients(nutrients: totalNutrients) {
+                            self.nutrients = nutrients
+                            self.nutrients.removeAll { $0.label == "" }
+                            self.tableView.reloadData()
+                        }
+                    }
                 } onError: { error in
                     print("Error \(error.localizedDescription)")
                 } onCompleted: {
