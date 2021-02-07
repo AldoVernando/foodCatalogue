@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol FoodUseCase {
-    func getFoodList(page: Int) -> Observable<[FoodModel]>
+    func getFoodList(keyword: String, page: Int) -> Observable<[FoodModel]>
     func getFoodDetail(id: String) -> Observable<FoodDetailModel>
     func getFavoriteFood() -> Observable<[FoodModel]>
     func addFavoriteFood(food: FoodModel) -> Observable<Bool>
@@ -25,8 +25,8 @@ class FoodInteractor: FoodUseCase {
         self.foodRepository = repository
     }
     
-    func getFoodList(page: Int = 0) -> Observable<[FoodModel]> {
-        return foodRepository.getFoodList(page: page)
+    func getFoodList(keyword: String = "", page: Int = 0) -> Observable<[FoodModel]> {
+        return foodRepository.getFoodList(keyword: keyword, page: page)
     }
     
     func getFoodDetail(id: String) -> Observable<FoodDetailModel> {

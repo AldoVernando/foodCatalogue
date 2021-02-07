@@ -13,6 +13,7 @@ class FoodsViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchField: UITextField!
     private var page: Int = 0
     private var presenter: FoodPresenter?
     private let disposeBag = DisposeBag()
@@ -22,6 +23,15 @@ class FoodsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = FoodPresenter()
+        
+        searchField.leftViewMode = .always
+        let searchImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        searchImageView.contentMode = .scaleAspectFit
+        searchImageView.image = UIImage(systemName: "magnifyingglass")
+        searchImageView.tintColor = .black
+        searchField.leftView = searchImageView
+        searchField.delegate = self
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "FoodTableViewCell", bundle: nil), forCellReuseIdentifier: "foodCell")
@@ -41,19 +51,6 @@ class FoodsViewController: UIViewController {
             }.disposed(by: disposeBag)
     }
 }
-
-
-//// MARK: Segue
-//extension FoodsViewController {
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "goToFoodDetail" {
-//            if let vc = segue.destination as? FoodDetailViewController {
-//                vc.foodData = selectedFood
-//            }
-//        }
-//    }
-//}
 
 
 // MARK: UITableView
@@ -101,5 +98,28 @@ extension FoodsViewController: UITableViewDelegate, UITableViewDataSource {
         let food = self.foods[indexPath.row]
         let selectedFood = FoodModel(id: food.id, label: food.label, nutrients: food.nutrients , category: food.category, categoryLabel: food.categoryLabel, image: food.image)
         router.navigateToFoodDetailScene(food: selectedFood, sender: self)
+    }
+}
+
+
+// MARK: UITextField
+extension FoodsViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let presenter = presenter else { return false }
+        
+        presenter.getFoodList(keyword: textField.text ?? "-")
+            .observeOn(MainScheduler.instance)
+            .subscribe { result in
+                self.foods = result
+                self.tableView.reloadData()
+            } onError: { error in
+                print("Error \(error.localizedDescription)")
+            } onCompleted: {
+                self.activityIndicator.stopAnimating()
+                self.tableView.isHidden = false
+            }.disposed(by: disposeBag)
+        
+        return true
     }
 }

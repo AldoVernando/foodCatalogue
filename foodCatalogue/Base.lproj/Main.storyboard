@@ -157,14 +157,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lvQ-K1-qdp">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Search foods" minimumFontSize="17" clearButtonMode="whileEditing" id="Owe-CH-mnZ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="aLU-wy-deF">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                                 <color key="color" red="1" green="0.71435284789999998" blue="0.72781301190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lvQ-K1-qdp">
+                                <rect key="frame" x="0.0" y="122" width="414" height="691"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jg2-HO-gwx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -172,21 +178,22 @@
                             <constraint firstItem="jg2-HO-gwx" firstAttribute="bottom" secondItem="lvQ-K1-qdp" secondAttribute="bottom" id="6m3-Ea-Ftl"/>
                             <constraint firstItem="aLU-wy-deF" firstAttribute="centerX" secondItem="96s-jt-0fD" secondAttribute="centerX" id="6zG-OV-Wdq"/>
                             <constraint firstItem="aLU-wy-deF" firstAttribute="centerY" secondItem="96s-jt-0fD" secondAttribute="centerY" id="8h4-Tq-evV"/>
-                            <constraint firstItem="lvQ-K1-qdp" firstAttribute="top" secondItem="jg2-HO-gwx" secondAttribute="top" id="EDL-cd-EEC"/>
                             <constraint firstItem="lvQ-K1-qdp" firstAttribute="leading" secondItem="jg2-HO-gwx" secondAttribute="leading" id="Sr8-WO-Hvi"/>
+                            <constraint firstItem="lvQ-K1-qdp" firstAttribute="top" secondItem="Owe-CH-mnZ" secondAttribute="bottom" id="n9t-Bp-gIZ"/>
                             <constraint firstItem="jg2-HO-gwx" firstAttribute="trailing" secondItem="lvQ-K1-qdp" secondAttribute="trailing" id="xjT-Bq-byM"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Foods" image="food" selectedImage="food" id="U4O-pn-qNl"/>
                     <connections>
                         <outlet property="activityIndicator" destination="aLU-wy-deF" id="hfe-m7-3rW"/>
+                        <outlet property="searchField" destination="Owe-CH-mnZ" id="Iw0-Qx-sOy"/>
                         <outlet property="tableView" destination="lvQ-K1-qdp" id="jak-iw-9pv"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToFoodDetail" id="VlV-d6-TUh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfN-sh-Pft" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-568" y="782"/>
+            <point key="canvasLocation" x="-568.1159420289855" y="781.47321428571422"/>
         </scene>
         <!--Food Catalogue-->
         <scene sceneID="f4M-d3-nuo">
@@ -332,7 +339,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xBA-ky-ldE"/>
+        <segue reference="VlV-d6-TUh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="about" width="20" height="20"/>
@@ -342,8 +349,8 @@
         <image name="linkedin" width="480" height="480"/>
         <image name="me" width="1478" height="1108"/>
         <image name="placeholder" width="450" height="450"/>
-        <image name="star" width="20" height="20"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

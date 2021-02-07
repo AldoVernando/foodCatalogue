@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol FoodPresenterProtocol {
-    func getFoodList(page: Int) -> Observable<[FoodModel]>
+    func getFoodList(keyword: String, page: Int) -> Observable<[FoodModel]>
     func getFoodDetail(id: String) -> Observable<FoodDetailModel>
     func getNutrients(nutrients: TotalNutrientsModel) -> [NutrientDetailModel]
     func getFavoriteFood() -> Observable<[FoodModel]>
@@ -26,8 +26,8 @@ class FoodPresenter: FoodPresenterProtocol {
         self.foodInteractor = Injection.init().provideInteractor()
     }
     
-    func getFoodList(page: Int = 0) -> Observable<[FoodModel]> {
-        return foodInteractor.getFoodList(page: page)
+    func getFoodList(keyword: String = "-", page: Int = 0) -> Observable<[FoodModel]> {
+        return foodInteractor.getFoodList(keyword: keyword, page: page)
     }
     
     func getFoodDetail(id: String) -> Observable<FoodDetailModel> {

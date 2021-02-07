@@ -10,17 +10,17 @@ import Alamofire
 import RxSwift
 
 protocol RemoteDataSourceProtocol {
-    func getFoodList(page: Int) -> Observable<[FoodResultResponse]>
+    func getFoodList(keyword: String, page: Int) -> Observable<[FoodResultResponse]>
     func getFoodDetail(id: String) -> Observable<FoodDetailResponse>
 }
 
 class RemoteDataSource: RemoteDataSourceProtocol {
     
-    func getFoodList(page: Int = 0) -> Observable<[FoodResultResponse]> {
+    func getFoodList(keyword: String = "-", page: Int = 0) -> Observable<[FoodResultResponse]> {
         
         let parameters: [String : Any] = [
             "page": page,
-            "ingr": "-",
+            "ingr": keyword,
             "app_id": Constant.APP_ID,
             "app_key": Constant.API_KEY
         ]
