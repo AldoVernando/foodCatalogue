@@ -1,5 +1,15 @@
 PODS:
   - Alamofire (5.4.0)
+  - FoodCatalogueModule (1.0.0):
+    - Alamofire
+    - RealmSwift
+    - RxSwift
+    - SDWebImage
+  - FoodDetailModule (1.0.0):
+    - Alamofire
+    - RealmSwift
+    - RxSwift
+    - SDWebImage
   - Realm (10.1.4):
     - Realm/Headers (= 10.1.4)
   - Realm/Headers (10.1.4)
@@ -12,6 +22,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - FoodCatalogueModule (from `https://github.com/AldoVernando/FoodCatalogueModuleLib.git`)
+  - FoodDetailModule (from `https://github.com/AldoVernando/FoodDetailModuleLib.git`)
   - RealmSwift
   - RxSwift
   - SDWebImage
@@ -24,13 +36,29 @@ SPEC REPOS:
     - RxSwift
     - SDWebImage
 
+EXTERNAL SOURCES:
+  FoodCatalogueModule:
+    :git: https://github.com/AldoVernando/FoodCatalogueModuleLib.git
+  FoodDetailModule:
+    :git: https://github.com/AldoVernando/FoodDetailModuleLib.git
+
+CHECKOUT OPTIONS:
+  FoodCatalogueModule:
+    :commit: be9fc4d633ef7a1f1bec3780f016e134ec45bda1
+    :git: https://github.com/AldoVernando/FoodCatalogueModuleLib.git
+  FoodDetailModule:
+    :commit: fab024d3d9aea647dc3de95ba00b92eab72f2f64
+    :git: https://github.com/AldoVernando/FoodDetailModuleLib.git
+
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  FoodCatalogueModule: 8d3341962a1ee7118cdd4d81a32222f640e00ee6
+  FoodDetailModule: dcb5fff638ba3ae3945b0f38abcd98f9da6cef66
   Realm: 80f4fb2971ccb9adc27a47d0955ae8e533a7030b
   RealmSwift: 0e566ca714edb377bba8ea0811eafcea0b93734e
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
 
-PODFILE CHECKSUM: 6f71f23ee3ac9a3bece4bcbb25cd18de28156d43
+PODFILE CHECKSUM: 28e7bf47f07661ede4cbfe133d66aacf3262f887
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

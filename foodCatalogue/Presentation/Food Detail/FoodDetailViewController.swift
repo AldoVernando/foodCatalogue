@@ -7,6 +7,8 @@
 
 import UIKit
 import RxSwift
+import FoodCatalogueModule
+import FoodDetailModule
 
 class FoodDetailViewController: UIViewController {
 
@@ -29,12 +31,14 @@ class FoodDetailViewController: UIViewController {
         }
     }
     var foodData: FoodModel?
-    var presenter: FoodPresenter?
+    var presenter: FoodDetailPresenter?
+    var favFoodPresenter: FoodFavoritePresenter?
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = FoodPresenter()
+        presenter = FoodDetailPresenter()
+        favFoodPresenter = FoodFavoritePresenter()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "NutrientTableViewCell", bundle: nil), forCellReuseIdentifier: "nutrientCell")
@@ -82,18 +86,19 @@ class FoodDetailViewController: UIViewController {
                     self.nutrientsLabel.isHidden = false
                 }.disposed(by: disposeBag)
                 
+            guard let favFoodPresenter = favFoodPresenter else { return }
             
-            self.isFavorite = presenter.isFavorite(id: food.id)
+            self.isFavorite = favFoodPresenter.isFavorite(id: food.id)
         }
     }
     
     @IBAction func onFavoriteButtonClicked(_ sender: Any) {
         
-        guard let presenter = presenter else { return }
+        guard let favFoodPresenter = favFoodPresenter else { return }
         
         if let food = foodData {
             if isFavorite {
-                presenter.removeFavoriteFood(id: food.id)
+                favFoodPresenter.removeFavoriteFood(id: food.id)
                     .observeOn(MainScheduler.instance)
                     .subscribe { success in
                         if success {
@@ -106,7 +111,7 @@ class FoodDetailViewController: UIViewController {
                         print("Error \(error.localizedDescription)")
                     }.disposed(by: disposeBag)
             } else {
-                presenter.addFavoriteFood(food: food)
+                favFoodPresenter.addFavoriteFood(food: food)
                     .observeOn(MainScheduler.instance)
                     .subscribe { success in
                         if success {

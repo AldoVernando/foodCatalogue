@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 import RxSwift
+import FoodCatalogueModule
 
 class FoodsViewController: UIViewController {
     
@@ -19,6 +20,7 @@ class FoodsViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private var foods: [FoodModel] = []
     private let router: Router = Router()
+//    private var foodPresenter = FoodPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()

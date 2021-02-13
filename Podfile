@@ -10,6 +10,8 @@ target 'foodCatalogue' do
   pod 'SDWebImage'
   pod 'RealmSwift'
   pod 'RxSwift'
+  pod 'FoodCatalogueModule', :git => 'https://github.com/AldoVernando/FoodCatalogueModuleLib.git'
+  pod 'FoodDetailModule', :git => 'https://github.com/AldoVernando/FoodDetailModuleLib.git'
 
   target 'foodCatalogueTests' do
     inherit! :search_paths
