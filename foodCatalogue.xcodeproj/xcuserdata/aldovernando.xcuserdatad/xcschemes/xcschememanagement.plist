@@ -6,8 +6,28 @@
 	<dict>
 		<key>foodCatalogue.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>10</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B519347E25690195002073BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B519349725690198002073BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B51934A225690198002073BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
