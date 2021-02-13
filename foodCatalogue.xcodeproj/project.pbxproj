@@ -27,7 +27,7 @@
 		B51934C825690DAE002073BB /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51934C725690DAE002073BB /* FavoritesViewController.swift */; };
 		B51934D1256914EE002073BB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51934D0256914EE002073BB /* AboutViewController.swift */; };
 		B519E407257FEA16005A8318 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519E406257FEA16005A8318 /* Router.swift */; };
-		B5DCB16F25738C5C00A2AC9F /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCB16E25738C5C00A2AC9F /* FoodDetailViewController.swift */; };
+		B53C7DE225D812B500D29C31 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53C7DE125D812B500D29C31 /* FoodDetailViewController.swift */; };
 		B5DCB180257390EF00A2AC9F /* NutrientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCB17E257390EF00A2AC9F /* NutrientTableViewCell.swift */; };
 		B5DCB181257390EF00A2AC9F /* NutrientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5DCB17F257390EF00A2AC9F /* NutrientTableViewCell.xib */; };
 		B5DCB1862573A9C100A2AC9F /* LocaleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCB1852573A9C100A2AC9F /* LocaleDataSource.swift */; };
@@ -85,7 +85,7 @@
 		B51934D0256914EE002073BB /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B519E406257FEA16005A8318 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B53C7C9325D7F8AE00D29C31 /* FoodCatalogueModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FoodCatalogueModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5DCB16E25738C5C00A2AC9F /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
+		B53C7DE125D812B500D29C31 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		B5DCB17E257390EF00A2AC9F /* NutrientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientTableViewCell.swift; sourceTree = "<group>"; };
 		B5DCB17F257390EF00A2AC9F /* NutrientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutrientTableViewCell.xib; sourceTree = "<group>"; };
 		B5DCB1852573A9C100A2AC9F /* LocaleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleDataSource.swift; sourceTree = "<group>"; };
@@ -312,7 +312,7 @@
 		B5DCB16D25738C2800A2AC9F /* Food Detail */ = {
 			isa = PBXGroup;
 			children = (
-				B5DCB16E25738C5C00A2AC9F /* FoodDetailViewController.swift */,
+				B53C7DE125D812B500D29C31 /* FoodDetailViewController.swift */,
 				B5DCB17E257390EF00A2AC9F /* NutrientTableViewCell.swift */,
 				B5DCB17F257390EF00A2AC9F /* NutrientTableViewCell.xib */,
 			);
@@ -567,10 +567,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5DCB16F25738C5C00A2AC9F /* FoodDetailViewController.swift in Sources */,
 				B51934D1256914EE002073BB /* AboutViewController.swift in Sources */,
 				B505864D256A7A9000978E27 /* Injection.swift in Sources */,
 				B519348325690195002073BB /* AppDelegate.swift in Sources */,
+				B53C7DE225D812B500D29C31 /* FoodDetailViewController.swift in Sources */,
 				B519348525690195002073BB /* SceneDelegate.swift in Sources */,
 				B505863F256A79E200978E27 /* FoodPresenter.swift in Sources */,
 				B50585FE256A544C00978E27 /* FoodEntity.swift in Sources */,
