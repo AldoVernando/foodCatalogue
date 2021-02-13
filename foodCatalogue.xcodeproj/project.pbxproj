@@ -12,7 +12,6 @@
 		B5058629256A76B900978E27 /* FoodRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058628256A76B900978E27 /* FoodRepository.swift */; };
 		B5058633256A787A00978E27 /* FoodInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058632256A787A00978E27 /* FoodInteractor.swift */; };
 		B505863F256A79E200978E27 /* FoodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505863E256A79E200978E27 /* FoodPresenter.swift */; };
-		B505864D256A7A9000978E27 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505864C256A7A9000978E27 /* Injection.swift */; };
 		B5058672256A874400978E27 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5058670256A874400978E27 /* FoodTableViewCell.swift */; };
 		B5058673256A874400978E27 /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5058671256A874400978E27 /* FoodTableViewCell.xib */; };
 		B519348325690195002073BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519348225690195002073BB /* AppDelegate.swift */; };
@@ -28,6 +27,7 @@
 		B51934D1256914EE002073BB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51934D0256914EE002073BB /* AboutViewController.swift */; };
 		B519E407257FEA16005A8318 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519E406257FEA16005A8318 /* Router.swift */; };
 		B53C7DE225D812B500D29C31 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53C7DE125D812B500D29C31 /* FoodDetailViewController.swift */; };
+		B53C7DEA25D8147000D29C31 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53C7DE925D8147000D29C31 /* Injection.swift */; };
 		B5DCB180257390EF00A2AC9F /* NutrientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCB17E257390EF00A2AC9F /* NutrientTableViewCell.swift */; };
 		B5DCB181257390EF00A2AC9F /* NutrientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5DCB17F257390EF00A2AC9F /* NutrientTableViewCell.xib */; };
 		B5DCB1862573A9C100A2AC9F /* LocaleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCB1852573A9C100A2AC9F /* LocaleDataSource.swift */; };
@@ -63,7 +63,6 @@
 		B5058628256A76B900978E27 /* FoodRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRepository.swift; sourceTree = "<group>"; };
 		B5058632256A787A00978E27 /* FoodInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInteractor.swift; sourceTree = "<group>"; };
 		B505863E256A79E200978E27 /* FoodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPresenter.swift; sourceTree = "<group>"; };
-		B505864C256A7A9000978E27 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		B5058670256A874400978E27 /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 		B5058671256A874400978E27 /* FoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTableViewCell.xib; sourceTree = "<group>"; };
 		B519347F25690195002073BB /* foodCatalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodCatalogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +85,7 @@
 		B519E406257FEA16005A8318 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		B53C7C9325D7F8AE00D29C31 /* FoodCatalogueModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FoodCatalogueModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53C7DE125D812B500D29C31 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
+		B53C7DE925D8147000D29C31 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		B5DCB17E257390EF00A2AC9F /* NutrientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientTableViewCell.swift; sourceTree = "<group>"; };
 		B5DCB17F257390EF00A2AC9F /* NutrientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutrientTableViewCell.xib; sourceTree = "<group>"; };
 		B5DCB1852573A9C100A2AC9F /* LocaleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleDataSource.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 		B5058643256A7A7100978E27 /* Dependency Injection */ = {
 			isa = PBXGroup;
 			children = (
-				B505864C256A7A9000978E27 /* Injection.swift */,
+				B53C7DE925D8147000D29C31 /* Injection.swift */,
 			);
 			path = "Dependency Injection";
 			sourceTree = "<group>";
@@ -568,7 +568,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B51934D1256914EE002073BB /* AboutViewController.swift in Sources */,
-				B505864D256A7A9000978E27 /* Injection.swift in Sources */,
 				B519348325690195002073BB /* AppDelegate.swift in Sources */,
 				B53C7DE225D812B500D29C31 /* FoodDetailViewController.swift in Sources */,
 				B519348525690195002073BB /* SceneDelegate.swift in Sources */,
@@ -581,6 +580,7 @@
 				B5058633256A787A00978E27 /* FoodInteractor.swift in Sources */,
 				B5DCB180257390EF00A2AC9F /* NutrientTableViewCell.swift in Sources */,
 				B5058672256A874400978E27 /* FoodTableViewCell.swift in Sources */,
+				B53C7DEA25D8147000D29C31 /* Injection.swift in Sources */,
 				B5DCB1862573A9C100A2AC9F /* LocaleDataSource.swift in Sources */,
 				B519348D25690195002073BB /* foodCatalogue.xcdatamodeld in Sources */,
 			);
