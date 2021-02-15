@@ -20,7 +20,10 @@ class Router: RouterProtocol {
         let vc = storyBoard.instantiateViewController(withIdentifier: "foodDetailViewController") as! FoodDetailViewController
         vc.modalPresentationStyle = .fullScreen
         vc.foodData = food
-        vc.presenter = FoodDetailPresenter()
+        
+        let interactor = FoodDetailModule.Injection.init().provideInteractor()
+        
+        vc.presenter = FoodDetailPresenter(interactor: interactor as! FoodDetailModule.FoodInteractor)
         let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController
         navController?.pushViewController(vc, animated: true)
     }

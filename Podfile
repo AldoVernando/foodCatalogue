@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '12.0'
+ platform :ios, '14.2'
 
 target 'foodCatalogue' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -12,6 +12,7 @@ target 'foodCatalogue' do
   pod 'RxSwift'
   pod 'FoodCatalogueModule', :git => 'https://github.com/AldoVernando/FoodCatalogueModuleLib.git'
   pod 'FoodDetailModule', :git => 'https://github.com/AldoVernando/FoodDetailModuleLib.git'
+  pod 'FavoriteFoodModule', :git => 'https://github.com/AldoVernando/FavoriteFoodModuleLib.git'
 
   target 'foodCatalogueTests' do
     inherit! :search_paths

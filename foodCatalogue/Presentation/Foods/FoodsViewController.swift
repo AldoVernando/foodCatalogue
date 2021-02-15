@@ -20,11 +20,11 @@ class FoodsViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private var foods: [FoodModel] = []
     private let router: Router = Router()
-//    private var foodPresenter = FoodPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = FoodPresenter()
+        let interactor = Injection.init().provideInteractor()
+        presenter = FoodPresenter(interactor: interactor as! FoodInteractor)
         
         searchField.leftViewMode = .always
         let searchImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))

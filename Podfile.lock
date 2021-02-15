@@ -1,5 +1,11 @@
 PODS:
   - Alamofire (5.4.0)
+  - FavoriteFoodModule (1.0.0):
+    - Alamofire
+    - FoodCatalogueModule
+    - RealmSwift
+    - RxSwift
+    - SDWebImage
   - FoodCatalogueModule (1.0.0):
     - Alamofire
     - RealmSwift
@@ -22,6 +28,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - FavoriteFoodModule (from `https://github.com/AldoVernando/FavoriteFoodModuleLib.git`)
   - FoodCatalogueModule (from `https://github.com/AldoVernando/FoodCatalogueModuleLib.git`)
   - FoodDetailModule (from `https://github.com/AldoVernando/FoodDetailModuleLib.git`)
   - RealmSwift
@@ -37,21 +44,27 @@ SPEC REPOS:
     - SDWebImage
 
 EXTERNAL SOURCES:
+  FavoriteFoodModule:
+    :git: https://github.com/AldoVernando/FavoriteFoodModuleLib.git
   FoodCatalogueModule:
     :git: https://github.com/AldoVernando/FoodCatalogueModuleLib.git
   FoodDetailModule:
     :git: https://github.com/AldoVernando/FoodDetailModuleLib.git
 
 CHECKOUT OPTIONS:
+  FavoriteFoodModule:
+    :commit: 6f30a8c4b0edad6e5d67c7cd3bd5640684f84f62
+    :git: https://github.com/AldoVernando/FavoriteFoodModuleLib.git
   FoodCatalogueModule:
-    :commit: be9fc4d633ef7a1f1bec3780f016e134ec45bda1
+    :commit: 5f30ce8df70634a151a399477577a0539efc6416
     :git: https://github.com/AldoVernando/FoodCatalogueModuleLib.git
   FoodDetailModule:
-    :commit: fab024d3d9aea647dc3de95ba00b92eab72f2f64
+    :commit: 42d4a2bd7fa8e64585cdc83d81d8c675684dedf3
     :git: https://github.com/AldoVernando/FoodDetailModuleLib.git
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  FavoriteFoodModule: 5a905b2a96f1137f0d6141844d3bdbe30d89ab56
   FoodCatalogueModule: 8d3341962a1ee7118cdd4d81a32222f640e00ee6
   FoodDetailModule: dcb5fff638ba3ae3945b0f38abcd98f9da6cef66
   Realm: 80f4fb2971ccb9adc27a47d0955ae8e533a7030b
@@ -59,6 +72,6 @@ SPEC CHECKSUMS:
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
 
-PODFILE CHECKSUM: a15f0d556832503e150bfac0f9e7de62bfe55223
+PODFILE CHECKSUM: 23fb912ff80780310ac8f14fee2af3ecf09d3d4b
 
 COCOAPODS: 1.10.1

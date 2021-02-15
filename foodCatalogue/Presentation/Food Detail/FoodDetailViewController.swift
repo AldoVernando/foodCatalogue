@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import FoodCatalogueModule
 import FoodDetailModule
+import FavoriteFoodModule
 
 class FoodDetailViewController: UIViewController {
 
@@ -32,13 +33,12 @@ class FoodDetailViewController: UIViewController {
     }
     var foodData: FoodModel?
     var presenter: FoodDetailPresenter?
-    var favFoodPresenter: FoodFavoritePresenter?
+    var favFoodPresenter: FavoriteFoodPresenter?
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        presenter = FoodDetailPresenter()
-        favFoodPresenter = FoodFavoritePresenter()
+        let interactor = FavoriteFoodModule.Injection.init().provideInteractor()
+        favFoodPresenter = FavoriteFoodPresenter(interactor: interactor as! FavoriteFoodModule.FoodInteractor)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "NutrientTableViewCell", bundle: nil), forCellReuseIdentifier: "nutrientCell")

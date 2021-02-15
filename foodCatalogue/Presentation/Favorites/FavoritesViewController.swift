@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import FoodCatalogueModule
+import FavoriteFoodModule
 
 class FavoritesViewController: UIViewController {
     
@@ -25,7 +26,8 @@ class FavoritesViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let presenter = FoodFavoritePresenter()
+        let interactor = FavoriteFoodModule.Injection.init().provideInteractor()
+        let presenter = FavoriteFoodPresenter(interactor: interactor as! FavoriteFoodModule.FoodInteractor)
         
         presenter.getFavoriteFood()
             .observeOn(MainScheduler.instance)
